@@ -135,6 +135,21 @@
       font-weight:bold;
     }
 
+    .btn-home{
+  background:white;
+  color:#0b2f74;
+  border:2px solid #0b2f74;
+  padding:12px 28px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.btn-home:hover{
+  background:#0b2f74;
+  color:white;
+}
+
   </style>
 </head>
 
@@ -148,10 +163,17 @@
       <h1>SaberHacer</h1>
     </div>
 
-    <div class="menu">
-       <a href="IniciarSesion.html"><button class="btn-login">Iniciar sesión</button></a>
-    </div>
+   <div class="menu">
 
+   <a href="index.html">
+      <button class="btn-home">Inicio</button>
+   </a>
+
+   <a href="IniciarSesion.html">
+      <button class="btn-login">Iniciar sesión</button>
+   </a>
+
+</div>
   </nav>
 
   <!-- FORMULARIO -->
@@ -161,7 +183,7 @@
 
       <h2>Regístrate</h2>
 
-      <form>
+      <form action="Inicio.html">
 
         <div class="input-group">
           <label>Nombre completo</label>
