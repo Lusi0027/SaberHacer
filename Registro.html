@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-512x512 (1).png">
+  <title>Registro</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#f3f3f3;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      width:100%;
+      height:80px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 40px;
+      background:#f3f3f3;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo h1{
+      font-size:28px;
+      color:#000;
+    }
+
+    .menu{
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+
+    .btn-login{
+      background:#0b2f74;
+      color:white;
+      border:none;
+      padding:12px 28px;
+      border-radius:25px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .menu a{
+      text-decoration:none;
+      color:black;
+      font-weight:bold;
+    }
+
+    /* FORMULARIO */
+    .container{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      margin-top:40px;
+    }
+
+    .register-box{
+      width:520px;
+      background:#f3f3f3;
+      border:3px solid #0b2f74;
+      border-radius:30px;
+      padding:40px;
+    }
+
+    .register-box h2{
+      text-align:center;
+      font-size:55px;
+      margin-bottom:35px;
+      color:#000;
+    }
+
+    .input-group{
+      margin-bottom:22px;
+    }
+
+    .input-group label{
+      display:block;
+      font-size:20px;
+      font-weight:bold;
+      margin-bottom:8px;
+      color:#000;
+    }
+
+    .input-group input{
+      width:100%;
+      padding:15px;
+      border:2px solid #0b2f74;
+      border-radius:12px;
+      outline:none;
+      font-size:16px;
+      background:white;
+    }
+
+    .register-btn{
+      width:100%;
+      padding:15px;
+      background:#36a92f;
+      color:white;
+      border:none;
+      border-radius:10px;
+      font-size:22px;
+      font-weight:bold;
+      cursor:pointer;
+      margin-top:10px;
+    }
+
+    .register-btn:hover{
+      background:#2f9429;
+    }
+
+    .extra{
+      text-align:center;
+      margin-top:25px;
+      font-size:18px;
+    }
+
+    .extra a{
+      color:black;
+      font-weight:bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+
+    <div class="logo">
+      <img src="img/Logotransparente.png" width="45">
+      <h1>SaberHacer</h1>
+    </div>
+
+    <div class="menu">
+       <a href="IniciarSesion.html"><button class="btn-login">Iniciar sesión</button></a>
+    </div>
+
+  </nav>
+
+  <!-- FORMULARIO -->
+  <div class="container">
+
+    <div class="register-box">
+
+      <h2>Regístrate</h2>
+
+      <form>
+
+        <div class="input-group">
+          <label>Nombre completo</label>
+          <input type="text" placeholder="Juan Pérez">
+        </div>
+
+        <div class="input-group">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="correo@gmail.com">
+        </div>
+
+        <div class="input-group">
+          <label>Cédula</label>
+          <input type="text" placeholder="402-4444222-2">
+        </div>
+
+        <div class="input-group">
+          <label>Contraseña</label>
+          <input type="password" placeholder="********">
+        </div>
+
+        <div class="input-group">
+          <label>Confirmar contraseña</label>
+          <input type="password" placeholder="********">
+        </div>
+
+        <button type="submit" class="register-btn">
+          Registrarse
+        </button>
+      </form>
+
+      <div class="extra">
+        ¿Ya tienes cuenta?
+        <a href="IniciarSesion.html">Inicia sesión</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
