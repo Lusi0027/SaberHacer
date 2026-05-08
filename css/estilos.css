@@ -17,7 +17,7 @@ body {
 }
 
 .titulo {
-    color: #062D66;
+    color: #000000;
     font-size: 30px;
     text-align: center;
     margin-bottom: 60px;
@@ -174,7 +174,7 @@ main .sobre-nosotros{
 }
 
 .hover-galeria p{
-    color: #fff;
+    color: #070707;
 }
 
 .imagen-port:hover .hover-galeria{
