@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - SaberHacer</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background-color: #17396d;
+        }
+
+        header{
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        .logo{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+       .logo{
+           display: flex;
+           align-items: center;
+          gap: 10px;
+
+           text-decoration: none;
+            color: black;
+        }
+
+        .logo img{
+             width: 80px;
+        }
+
+        nav{
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+
+            padding: 10px;
+            border-radius: 20px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover{
+            background-color: #7ed957;
+
+            transform: scale(1.08);
+        }
+
+        .activo{
+            background-color: #45b833;
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: black;
+        }
+
+        .buscar-container{
+            position: relative;
+        }
+
+        .barra-busqueda{
+            display: none;
+           position: absolute;
+            top: 45px;
+            right: 0;
+            background-color: white;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .barra-busqueda input{
+
+            width: 250px;
+            padding: 10px;
+            border: 2px solid #45b833;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .barra-busqueda input:focus{
+            box-shadow: 0px 0px 8px #45b833;
+        }
+        .iconos img{
+    width: 35px;
+    cursor: pointer;
+    transition: 0.3s;
+    }
+
+    .iconos img:hover{
+    transform: scale(1.1);
+    filter: brightness(80%);
+    }
+
+    .notificacion-container{
+    position: relative;
+    }
+
+    .panel-notificaciones{
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+
+    width: 300px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    z-index: 100;
+    }
+
+    .panel-notificaciones h3{
+    margin-bottom: 15px;
+    color: #17396d;
+    }
+
+    .panel-notificaciones p{
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: 0.2s;
+    }
+
+    .panel-notificaciones p:hover{
+    background-color: #e8ffe5;
+    }
+
+        .contenido{
+            padding: 40px 50px;
+            color: white;
+        }
+
+        .contenido h2{
+            font-size: 50px;
+            margin-bottom: 40px;
+        }
+
+        .tarjetas{
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-bottom: 50px;
+        }
+
+        .card{
+            background-color: #0f63c9;
+            width: 420px;
+            min-height: 220px;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .card h3{
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 25px;
+            color: #001a44;
+        }
+
+        .card p{
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .calendario{
+            width: fit-content;
+            margin: auto;
+            background-color: #0f63c9;
+            padding: 20px 40px;
+            border-radius: 15px;
+            text-decoration: none;
+        }
+
+        .calendario h3{
+            font-size: 45px;
+            color: #001a44;
+            
+        }
+        .btn-calendario{
+            text-decoration: none;
+        }
+
+        footer{
+            background-color: white;
+            padding: 20px 40px;
+            margin-top: 80px;
+        }
+
+        .soporte{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+
+        <div class="logo">
+            <a href="Inicio.html" class="logo">
+
+    <img src="img/Logotransparente.png" alt="Logo">
+
+    <h1>SaberHacer</h1>
+</a>
+        </div>
+
+        <nav>
+            <a href="#" class="activo">Inicio</a>
+            <a href="#">Mi progreso</a>
+            <a href="#">Cursos</a>
+            <a href="#">Certificados</a>
+            <div class="buscar-container">
+
+            <a href="#" onclick="abrirBusqueda()">Buscar
+            </a>
+
+            <div class="barra-busqueda" id="busqueda">
+
+            <input type="text" placeholder="Buscar cursos...">
+
+            </div>
+
+        </div>
+
+            <div class="iconos">
+                    <div class="notificacion-container">
+
+        <img src="img/notificaciones.png"
+             alt="Notificaciones"
+             onclick="abrirNotificaciones()">
+
+        <div class="panel-notificaciones" id="panel">
+
+            <h3>Notificaciones</h3>
+            <p>📚 Nueva actividad disponible</p>
+            <p>📝 El examen será el viernes</p>
+            <p>🎉 Nuevo curso agregado</p>
+
+        </div>
+    </div>
+</div>
+        <a href="Perfil.html">
+        <img src="img/usuario.png" alt="usuario" width="35">
+                </a>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- CONTENIDO -->
+
+    <section class="contenido">
+
+        <h2>Bienvenido, Angel!</h2>
+
+        <div class="tarjetas">
+
+            <div class="card">
+
+                <h3>Resumen</h3>
+
+                <p>Curso en progreso: Técnico en mercadeo</p>
+                <p>Progreso del curso: 62%</p>
+                <p>Actividades pendientes: 2</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Notificaciones</h3>
+
+                <p>Se vence Actividad de aprendizaje 9 (14/05/2026)</p>
+                <p>Segundo examen (16/05/2026)</p>
+
+            </div>
+
+        </div>
+
+        <div class="calendario">
+            <a href="Calendario.html" class="btn-calendario"> 
+            <h3>Calendario de eventos</h3>
+            </a>
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <div class="soporte">
+            📞
+            <div>
+                <p>Soporte técnico</p>
+                <p>809-000-9999</p>
+            </div>
+        </div>
+
+    </footer>
+  <script>
+
+function abrirNotificaciones(){
+
+    let panel = document.getElementById("panel");
+
+    if(panel.style.display === "block"){
+        panel.style.display = "none";
+    }
+    else{
+        panel.style.display = "block";
+    }
+
+}
+
+function abrirBusqueda(){
+
+    let barra = document.getElementById("busqueda");
+
+    if(barra.style.display === "block"){
+        barra.style.display = "none";
+    }
+    else{
+        barra.style.display = "block";
+    }
+
+}
+</script>
+</body>
+</html>

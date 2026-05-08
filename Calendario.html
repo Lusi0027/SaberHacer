@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario - SaberHacer</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background-color: #17396d;
+        }
+
+        /* ===== HEADER ===== */
+
+        header{
+            background-color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 40px;
+        }
+
+        .logo{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            text-decoration: none;
+            color: black;
+        }
+
+        .logo img{
+            width: 70px;
+        }
+
+        .logo h1{
+            font-size: 38px;
+        }
+
+        nav{
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+
+            padding: 10px 18px;
+            border-radius: 20px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover{
+            background-color: #7ed957;
+            transform: scale(1.08);
+        }
+
+        .activo{
+            background-color: #45b833;
+        }
+
+        /* ===== TITULO ===== */
+
+        .titulo{
+            text-align: center;
+            color: white;
+
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .titulo h2{
+            font-size: 50px;
+        }
+
+        /* ===== CALENDARIO ===== */
+
+        .contenedor-calendario{
+
+            width: 1000px;
+
+            margin: auto;
+
+            background-color: white;
+
+            border-radius: 20px;
+
+            padding: 30px;
+        }
+
+        .mes{
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 30px;
+        }
+
+        .mes h3{
+            font-size: 40px;
+            color: #17396d;
+        }
+
+        .mes button{
+
+            background-color: #45b833;
+
+            border: none;
+
+            padding: 10px 20px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 20px;
+
+            transition: 0.3s;
+        }
+
+        .mes button:hover{
+            transform: scale(1.08);
+        }
+
+        /* ===== DIAS ===== */
+
+        .dias-semana,
+        .dias{
+
+            display: grid;
+
+            grid-template-columns: repeat(7, 1fr);
+
+            gap: 15px;
+        }
+
+        .dias-semana div{
+
+            background-color: #17396d;
+
+            color: white;
+
+            padding: 15px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+        }
+
+        .dias div{
+
+            height: 100px;
+
+            background-color: #f1f1f1;
+
+            border-radius: 12px;
+
+            padding: 10px;
+
+            font-weight: bold;
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+        .dias div:hover{
+
+            background-color: #d9ffd5;
+
+            transform: scale(1.03);
+        }
+
+        /* ===== EVENTOS ===== */
+
+        .evento{
+
+            margin-top: 8px;
+
+            background-color: #45b833;
+
+            color: white;
+
+            padding: 5px;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <a href="Inicio.html" class="logo">
+
+            <img src="img/Logotransparente.png" alt="Logo">
+
+            <h1>SaberHacer</h1>
+
+        </a>
+
+        <nav>
+
+            <a href="Inicio.html">Inicio</a>
+
+            <a href="#">Mi progreso</a>
+
+            <a href="#">Cursos</a>
+
+            <a href="#">Certificados</a>
+
+            <a href="calendario.html" class="activo">
+                Calendario
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!-- TITULO -->
+
+    <section class="titulo">
+
+        <h2>Calendario Académico</h2>
+
+    </section>
+
+    <!-- CALENDARIO -->
+
+    <section class="contenedor-calendario">
+
+        <div class="mes">
+
+            <button>◀</button>
+
+            <h3>Mayo 2026</h3>
+
+            <button>▶</button>
+
+        </div>
+
+        <!-- DIAS SEMANA -->
+
+        <div class="dias-semana">
+
+            <div>Dom</div>
+            <div>Lun</div>
+            <div>Mar</div>
+            <div>Mié</div>
+            <div>Jue</div>
+            <div>Vie</div>
+            <div>Sáb</div>
+
+        </div>
+
+        <!-- DIAS -->
+
+        <div class="dias">
+
+            <div></div>
+            <div></div>
+            <div></div>
+
+            <div>1</div>
+
+            <div>2</div>
+
+            <div>3</div>
+
+            <div>4</div>
+
+            <div>5</div>
+
+            <div>
+                6
+
+                <div class="evento">
+                    Tarea
+                </div>
+
+            </div>
+
+            <div>7</div>
+
+            <div>8</div>
+
+            <div>
+                9
+
+                <div class="evento">
+                    Examen
+                </div>
+
+            </div>
+
+            <div>10</div>
+
+            <div>11</div>
+
+            <div>12</div>
+
+            <div>13</div>
+
+            <div>14</div>
+
+            <div>15</div>
+
+            <div>
+                16
+
+                <div class="evento">
+                    Proyecto
+                </div>
+
+            </div>
+
+            <div>17</div>
+
+            <div>18</div>
+
+            <div>19</div>
+
+            <div>20</div>
+
+            <div>21</div>
+
+            <div>22</div>
+
+            <div>23</div>
+
+            <div>24</div>
+
+            <div>25</div>
+
+            <div>26</div>
+
+            <div>27</div>
+
+            <div>28</div>
+
+            <div>29</div>
+
+            <div>30</div>
+
+            <div>31</div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
