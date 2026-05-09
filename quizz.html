@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Vocacional - SaberHacer</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background-color: #17396d;
+        }
+
+        /* ===== HEADER ===== */
+
+        header{
+
+            background-color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 40px;
+
+            border-bottom: 3px solid #45b833;
+        }
+
+        .logo{
+
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            text-decoration: none;
+
+            color: black;
+        }
+
+        .logo img{
+            width: 70px;
+        }
+
+        .logo h1{
+            font-size: 38px;
+        }
+
+        nav{
+
+            display: flex;
+            align-items: center;
+
+            gap: 18px;
+        }
+
+        nav a{
+
+            text-decoration: none;
+
+            color: black;
+
+            font-weight: bold;
+
+            padding: 10px 18px;
+
+            border-radius: 20px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover{
+
+            background-color: #7ed957;
+
+            transform: scale(1.08);
+        }
+
+        .activo{
+
+            background-color: #45b833;
+        }
+
+        /* ===== CONTENEDOR ===== */
+
+        .contenedor{
+
+            width: 900px;
+
+            margin: 60px auto;
+
+            background-color: white;
+
+            border-radius: 25px;
+
+            padding: 50px;
+        }
+
+        /* ===== TITULO ===== */
+
+        .titulo{
+
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+        .titulo h2{
+
+            font-size: 50px;
+
+            color: #17396d;
+
+            margin-bottom: 15px;
+        }
+
+        .titulo p{
+
+            font-size: 22px;
+
+            color: #444;
+        }
+
+        /* ===== PROGRESO ===== */
+
+        .progreso-container{
+
+            margin-bottom: 40px;
+        }
+
+        .progreso-texto{
+
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+
+            font-weight: bold;
+        }
+
+        .barra{
+
+            width: 100%;
+
+            height: 18px;
+
+            background-color: #d9d9d9;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .progreso{
+
+            height: 100%;
+
+            background-color: #45b833;
+
+            width: 0%;
+
+            transition: 0.3s;
+        }
+
+        /* ===== PREGUNTA ===== */
+
+        .pregunta h3{
+
+            font-size: 34px;
+
+            margin-bottom: 30px;
+
+            color: #17396d;
+        }
+
+        /* ===== OPCIONES ===== */
+
+        .opciones{
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 18px;
+        }
+
+        .opcion{
+
+            background-color: #eef6ff;
+
+            border: 2px solid transparent;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .opcion:hover{
+
+            background-color: #d9ffd5;
+
+            border-color: #45b833;
+
+            transform: scale(1.02);
+        }
+
+        .seleccionada{
+
+            background-color: #c8ffc3;
+
+            border-color: #45b833;
+        }
+
+        /* ===== BOTONES ===== */
+
+        .botones{
+
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 40px;
+        }
+
+        .botones button{
+
+            border: none;
+
+            padding: 15px 30px;
+
+            border-radius: 12px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .btn-anterior{
+
+            background-color: #d9d9d9;
+        }
+
+        .btn-siguiente{
+
+            background-color: #45b833;
+
+            color: white;
+        }
+
+        .botones button:hover{
+
+            transform: scale(1.05);
+        }
+
+        /* ===== RESULTADO ===== */
+
+        .resultado{
+
+            text-align: center;
+        }
+
+        .resultado h2{
+
+            font-size: 45px;
+
+            color: #17396d;
+
+            margin-bottom: 20px;
+        }
+
+        .resultado h3{
+
+            font-size: 35px;
+
+            color: #45b833;
+
+            margin-bottom: 25px;
+        }
+
+        .resultado p{
+
+            font-size: 22px;
+
+            margin-bottom: 15px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <a href="Inicio.html" class="logo">
+
+            <img src="img/Logotransparente.png" alt="Logo">
+
+            <h1>SaberHacer</h1>
+
+        </a>
+
+        <nav>
+
+            <a href="Inicio.html">Inicio</a>
+
+            <a href="miprogreso.html">Mi progreso</a>
+
+            <a href="Cursos.html">Cursos</a>
+
+            <a href="quiz.html" class="activo">
+                Quiz Vocacional
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!-- CONTENEDOR -->
+
+    <section class="contenedor">
+
+        <div class="titulo">
+
+            <h2>Quiz Vocacional</h2>
+
+            <p>
+                Descubre qué área profesional encaja contigo.
+            </p>
+
+        </div>
+
+        <!-- PROGRESO -->
+
+        <div class="progreso-container">
+
+            <div class="progreso-texto">
+
+                <span id="textoPregunta">
+                    Pregunta 1 de 5
+                </span>
+
+                <span id="porcentaje">
+                    20%
+                </span>
+
+            </div>
+
+            <div class="barra">
+
+                <div class="progreso" id="barraProgreso"></div>
+
+            </div>
+
+        </div>
+
+        <!-- CONTENIDO DINAMICO -->
+
+        <div id="quizContenido"></div>
+
+        <!-- BOTONES -->
+
+        <div class="botones">
+
+            <button class="btn-anterior"
+                    onclick="anteriorPregunta()">
+                Anterior
+            </button>
+
+            <button class="btn-siguiente"
+                    onclick="siguientePregunta()">
+                Siguiente
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+const preguntas = [
+
+{
+    pregunta: "¿Qué actividad disfrutas más?",
+
+    opciones: [
+
+        {
+            texto: "Resolver problemas matemáticos",
+            area: "ingenieria"
+        },
+
+        {
+            texto: "Diseñar dibujos o interfaces",
+            area: "diseno"
+        },
+
+        {
+            texto: "Ayudar y hablar con personas",
+            area: "educacion"
+        },
+
+        {
+            texto: "Analizar datos e investigar",
+            area: "analisis"
+        }
+    ]
+},
+
+{
+    pregunta: "¿Qué materia prefieres?",
+
+    opciones: [
+
+        {
+            texto: "Matemáticas",
+            area: "ingenieria"
+        },
+
+        {
+            texto: "Arte",
+            area: "diseno"
+        },
+
+        {
+            texto: "Biología",
+            area: "medicina"
+        },
+
+        {
+            texto: "Ciencias Sociales",
+            area: "mercadeo"
+        }
+    ]
+},
+
+{
+    pregunta: "¿Qué tipo de trabajo te llama más la atención?",
+
+    opciones: [
+
+        {
+            texto: "Crear sistemas o máquinas",
+            area: "ingenieria"
+        },
+
+        {
+            texto: "Diseñar contenido visual",
+            area: "diseno"
+        },
+
+        {
+            texto: "Atender y ayudar pacientes",
+            area: "medicina"
+        },
+
+        {
+            texto: "Promocionar productos o marcas",
+            area: "mercadeo"
+        }
+    ]
+},
+
+{
+    pregunta: "¿Qué habilidad consideras más fuerte?",
+
+    opciones: [
+
+        {
+            texto: "Lógica",
+            area: "ingenieria"
+        },
+
+        {
+            texto: "Creatividad",
+            area: "diseno"
+        },
+
+        {
+            texto: "Comunicación",
+            area: "educacion"
+        },
+
+        {
+            texto: "Observación y análisis",
+            area: "medicina"
+        }
+    ]
+},
+
+{
+    pregunta: "¿Qué prefieres hacer en tu tiempo libre?",
+
+    opciones: [
+
+        {
+            texto: "Programar o construir cosas",
+            area: "ingenieria"
+        },
+
+        {
+            texto: "Editar videos o dibujar",
+            area: "diseno"
+        },
+
+        {
+            texto: "Ayudar o enseñar a otros",
+            area: "educacion"
+        },
+
+        {
+            texto: "Investigar temas de salud",
+            area: "medicina"
+        }
+    ]
+},
+
+{
+    pregunta: "¿Qué ambiente laboral prefieres?",
+
+    opciones: [
+
+        {
+            texto: "Laboratorios o empresas tecnológicas",
+            area: "ingenieria"
+        },
+
+        {
+            texto: "Estudios creativos",
+            area: "diseno"
+        },
+
+        {
+            texto: "Escuelas o universidades",
+            area: "educacion"
+        },
+
+        {
+            texto: "Hospitales o clínicas",
+            area: "medicina"
+        }
+    ]
+},
+
+{
+    pregunta: "¿Qué tipo de proyectos te interesan más?",
+
+    opciones: [
+
+        {
+            texto: "Desarrollar aplicaciones",
+            area: "ingenieria"
+        },
+
+        {
+            texto: "Crear campañas visuales",
+            area: "diseno"
+        },
+
+        {
+            texto: "Preparar clases o talleres",
+            area: "educacion"
+        },
+
+        {
+            texto: "Investigar enfermedades",
+            area: "medicina"
+        }
+    ]
+},
+
+{
+    pregunta: "¿Qué valoras más en una profesión?",
+
+    opciones: [
+
+        {
+            texto: "Innovación",
+            area: "ingenieria"
+        },
+
+        {
+            texto: "Expresión creativa",
+            area: "diseno"
+        },
+
+        {
+            texto: "Ayudar a otros",
+            area: "educacion"
+        },
+
+        {
+            texto: "Salvar vidas",
+            area: "medicina"
+        }
+    ]
+},
+
+{
+    pregunta: "¿Qué actividad escolar disfrutas más?",
+
+    opciones: [
+
+        {
+            texto: "Resolver ejercicios",
+            area: "ingenieria"
+        },
+
+        {
+            texto: "Hacer presentaciones visuales",
+            area: "diseno"
+        },
+
+        {
+            texto: "Exponer temas",
+            area: "educacion"
+        },
+
+        {
+            texto: "Experimentos científicos",
+            area: "medicina"
+        }
+    ]
+},
+
+{
+    pregunta: "¿Cómo te describen tus amigos?",
+
+    opciones: [
+
+        {
+            texto: "Analítico",
+            area: "analisis"
+        },
+
+        {
+            texto: "Creativo",
+            area: "diseno"
+        },
+
+        {
+            texto: "Sociable",
+            area: "mercadeo"
+        },
+
+        {
+            texto: "Responsable y atento",
+            area: "medicina"
+        }
+    ]
+}
+];
+
+let preguntaActual = 0;
+
+let respuestas = [];
+
+function cargarPregunta(){
+
+    let quiz = document.getElementById("quizContenido");
+
+    let pregunta = preguntas[preguntaActual];
+
+    let progreso =
+        ((preguntaActual + 1) / preguntas.length) * 100;
+
+    document.getElementById("barraProgreso")
+    .style.width = progreso + "%";
+
+    document.getElementById("porcentaje")
+    .innerText = progreso + "%";
+
+    document.getElementById("textoPregunta")
+    .innerText =
+    `Pregunta ${preguntaActual + 1} de ${preguntas.length}`;
+
+    quiz.innerHTML = `
+
+        <div class="pregunta">
+
+            <h3>${pregunta.pregunta}</h3>
+
+            <div class="opciones">
+
+                ${pregunta.opciones.map((opcion) => `
+
+                    <div class="opcion"
+
+                        onclick="seleccionarRespuesta('${opcion.area}', this)">
+
+                        ${opcion.texto}
+
+                    </div>
+
+                `).join("")}
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+function seleccionarRespuesta(area, elemento){
+
+    respuestas[preguntaActual] = area;
+
+    let opciones =
+        document.querySelectorAll(".opcion");
+
+    opciones.forEach(op => {
+        op.classList.remove("seleccionada");
+    });
+
+    elemento.classList.add("seleccionada");
+}
+
+function siguientePregunta(){
+
+    if(!respuestas[preguntaActual]){
+
+        alert("Selecciona una respuesta");
+
+        return;
+    }
+
+    preguntaActual++;
+
+    if(preguntaActual < preguntas.length){
+
+        cargarPregunta();
+    }
+    else{
+
+        mostrarResultado();
+    }
+}
+
+function anteriorPregunta(){
+
+    if(preguntaActual > 0){
+
+        preguntaActual--;
+
+        cargarPregunta();
+    }
+}
+
+function mostrarResultado(){
+
+    let quiz =
+        document.getElementById("quizContenido");
+
+    let conteo = {
+
+        ingenieria: 0,
+        diseno: 0,
+        educacion: 0,
+        medicina: 0,
+        mercadeo: 0,
+        analisis: 0
+    };
+
+    respuestas.forEach(area => {
+        conteo[area]++;
+    });
+
+    let resultadoFinal =
+        Object.keys(conteo).reduce((a, b) =>
+        conteo[a] > conteo[b] ? a : b);
+
+    let resultadoTexto = "";
+
+    let descripcion = "";
+
+    if(resultadoFinal === "ingenieria"){
+
+        resultadoTexto =
+        "💻 Ingeniería en Software y otras Ingenierías";
+
+        descripcion =
+        "Tienes afinidad por la lógica, resolución de problemas y tecnología.";
+    }
+
+    else if(resultadoFinal === "diseno"){
+
+        resultadoTexto =
+        "🎨 Diseño UX/UI";
+
+        descripcion =
+        "Destacas por tu creatividad y capacidad visual.";
+    }
+
+    else if(resultadoFinal === "educacion"){
+
+        resultadoTexto =
+        "📚 Educación";
+
+        descripcion =
+        "Tienes habilidades para enseñar y comunicar ideas.";
+    }
+
+    else if(resultadoFinal === "medicina"){
+
+        resultadoTexto =
+        "🩺 Medicina";
+
+        descripcion =
+        "Muestras interés en la salud y el cuidado de las personas.";
+    }
+
+    else if(resultadoFinal === "mercadeo"){
+
+        resultadoTexto =
+        "📈 Mercadeo";
+
+        descripcion =
+        "Te interesan las estrategias, comunicación y negocios.";
+    }
+
+    else{
+
+        resultadoTexto =
+        "📊 Análisis de Datos";
+
+        descripcion =
+        "Tienes pensamiento analítico e interés en la investigación.";
+    }
+
+    quiz.innerHTML = `
+
+        <div class="resultado">
+
+            <h2>Resultado del Quiz</h2>
+
+            <p>
+                Tu área recomendada es:
+            </p>
+
+            <h3>${resultadoTexto}</h3>
+
+            <p>
+                ${descripcion}
+            </p>
+
+        </div>
+
+    `;
+
+    document.querySelector(".botones")
+    .style.display = "none";
+}
+
+cargarPregunta();
+
+</script>
+
+</body>
+</html>
