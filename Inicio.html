@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-512x512 (1).png">
+
+    <link rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="img/android-chrome-512x512 (1).png">
+
     <title>Inicio - SaberHacer</title>
 
     <style>
+
+        /* ===== GENERAL ===== */
 
         *{
             margin: 0;
@@ -16,394 +23,583 @@
         }
 
         body{
-            background-color: #17396d;
+            background-color: #064e64;
         }
 
+        /* ===== HEADER ===== */
+
         header{
-            background-color: white;
+
+            background-color: rgba(255,255,255,0.95);
+
+            backdrop-filter: blur(8px);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             padding: 15px 40px;
+
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
         }
+
+        /* ===== LOGO ===== */
 
         .logo{
+
             display: flex;
             align-items: center;
+
             gap: 10px;
-        }
 
-       .logo{
-           display: flex;
-           align-items: center;
-          gap: 10px;
+            text-decoration: none;
 
-           text-decoration: none;
             color: black;
         }
 
         .logo img{
-             width: 80px;
+            width: 80px;
         }
 
+        /* ===== NAV ===== */
+
         nav{
+
             display: flex;
             align-items: center;
+
             gap: 25px;
         }
 
         nav a{
+
             text-decoration: none;
+
             color: black;
+
             font-weight: bold;
 
-            padding: 10px;
+            padding: 10px 16px;
+
             border-radius: 20px;
 
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         nav a:hover{
+
             background-color: #7ed957;
 
             transform: scale(1.08);
         }
 
         .activo{
+
             background-color: #45b833;
+
             padding: 10px 20px;
+
             border-radius: 20px;
-            color: black;
         }
+
+        /* ===== BUSQUEDA ===== */
 
         .buscar-container{
             position: relative;
         }
 
         .barra-busqueda{
+
             display: none;
-           position: absolute;
+
+            position: absolute;
+
             top: 45px;
             right: 0;
+
             background-color: white;
+
             padding: 12px;
+
             border-radius: 12px;
-            box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.20);
         }
 
         .barra-busqueda input{
 
             width: 250px;
+
             padding: 10px;
+
             border: 2px solid #45b833;
+
             border-radius: 8px;
+
             outline: none;
         }
 
         .barra-busqueda input:focus{
+
             box-shadow: 0px 0px 8px #45b833;
         }
+
+        /* ===== ICONOS ===== */
+
+        .iconos{
+
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+        }
+
         .iconos img{
-    width: 35px;
-    cursor: pointer;
-    transition: 0.3s;
-    }
 
-    .iconos img:hover{
-    transform: scale(1.1);
-    filter: brightness(80%);
-    }
+            width: 35px;
 
-    .notificacion-container{
-    position: relative;
-    }
+            cursor: pointer;
 
-    .panel-notificaciones{
-    display: none;
-    position: absolute;
-    top: 45px;
-    right: 0;
+            transition: 0.3s;
+        }
 
-    width: 300px;
-    background-color: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-    z-index: 100;
-    }
+        .iconos img:hover{
 
-    .panel-notificaciones h3{
-    margin-bottom: 15px;
-    color: #17396d;
-    }
+            transform: scale(1.1);
 
-    .panel-notificaciones p{
-    margin-bottom: 10px;
-    padding: 8px;
-    border-radius: 8px;
-    transition: 0.2s;
-    }
+            filter: brightness(80%);
+        }
 
-    .panel-notificaciones p:hover{
-    background-color: #e8ffe5;
-    }
+        /* ===== NOTIFICACIONES ===== */
+
+        .notificacion-container{
+            position: relative;
+        }
+
+        .panel-notificaciones{
+
+            display: none;
+
+            position: absolute;
+
+            top: 45px;
+            right: 0;
+
+            width: 300px;
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            padding: 15px;
+
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.20);
+
+            z-index: 100;
+        }
+
+        .panel-notificaciones h3{
+
+            margin-bottom: 15px;
+
+            color: #064e64;
+        }
+
+        .panel-notificaciones p{
+
+            margin-bottom: 10px;
+
+            padding: 8px;
+
+            border-radius: 8px;
+
+            transition: 0.2s;
+        }
+
+        .panel-notificaciones p:hover{
+
+            background-color: #e8ffe5;
+        }
+
+        /* ===== CONTENIDO ===== */
 
         .contenido{
-            padding: 40px 50px;
+
+            padding: 50px;
+
             color: white;
         }
 
         .contenido h2{
-            font-size: 50px;
-            margin-bottom: 40px;
+
+            font-size: 55px;
+
+            margin-bottom: 50px;
         }
 
+        /* ===== TARJETAS ===== */
+
         .tarjetas{
+
             display: flex;
+
             justify-content: center;
+
             gap: 80px;
+
             margin-bottom: 50px;
         }
 
         .card{
-            background-color: #0f63c9;
+
+            background: linear-gradient(
+                135deg,
+                #0b6e8a,
+                #0a5d75
+            );
+
             width: 420px;
+
             min-height: 220px;
-            border-radius: 15px;
+
+            border-radius: 20px;
+
             padding: 25px;
+
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+
+            transition: all 0.3s ease;
+        }
+
+        .card:hover{
+
+            transform: translateY(-6px);
+
+            box-shadow: 0px 12px 24px rgba(0,0,0,0.35);
         }
 
         .card h3{
+
             text-align: center;
+
             font-size: 40px;
+
             margin-bottom: 25px;
-            color: #001a44;
+
+            color: #dff8ff;
         }
 
         .card p{
+
             font-size: 24px;
+
             margin-bottom: 20px;
+
             font-weight: bold;
         }
 
-        .calendario{
-            width: fit-content;
-            margin: auto;
-            background-color: #0f63c9;
-            padding: 20px 40px;
-            border-radius: 15px;
+        /* ===== BOTON QUIZ ===== */
+
+        .contenedor-quiz{
+
+            display: flex;
+
+            justify-content: center;
+
+            margin-bottom: 40px;
+        }
+
+        .btn-quiz{
+
+            background-color: #45b833;
+
+            color: white;
+
             text-decoration: none;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            padding: 18px 35px;
+
+            border-radius: 18px;
+
+            transition: all 0.3s ease;
+
+            box-shadow: 0px 6px 18px rgba(0,0,0,0.25);
+        }
+
+        .btn-quiz:hover{
+
+            background-color: #62d451;
+
+            transform: scale(1.08);
+
+            box-shadow: 0px 10px 22px rgba(0,0,0,0.35);
+        }
+
+        /* ===== CALENDARIO ===== */
+
+        .calendario{
+
+            width: fit-content;
+
+            margin: auto;
+
+            background: linear-gradient(
+                135deg,
+                #0b6e8a,
+                #064e64
+            );
+
+            padding: 25px 45px;
+
+            border-radius: 20px;
+
+            transition: all 0.3s ease;
+
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .calendario:hover{
+
+            transform: scale(1.04);
         }
 
         .calendario h3{
+
             font-size: 45px;
-            color: #001a44;
-            
+
+            color: #dff8ff;
         }
+
         .btn-calendario{
             text-decoration: none;
         }
-        /* ===== BOTON QUIZ ===== */
 
-.contenedor-quiz{
-
-    display: flex;
-    justify-content: center;
-
-    margin-bottom: 40px;
-}
-
-.btn-quiz{
-
-    background-color: #45b833;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 24px;
-
-    font-weight: bold;
-
-    padding: 18px 35px;
-
-    border-radius: 18px;
-
-    transition: 0.3s;
-}
-
-.btn-quiz:hover{
-
-    background-color: #62d451;
-
-    transform: scale(1.08);
-
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
-}
+        /* ===== FOOTER ===== */
 
         footer{
+
             background-color: white;
+
             padding: 20px 40px;
+
             margin-top: 80px;
         }
 
         .soporte{
+
             display: flex;
             align-items: center;
+
             gap: 15px;
+
             font-size: 22px;
+
             font-weight: bold;
         }
+
     </style>
 
 </head>
 <body>
 
+    <!-- HEADER -->
+
     <header>
 
-        <div class="logo">
-            <a href="Inicio.html" class="logo">
+        <a href="Inicio.html" class="logo">
 
-    <img src="img/Logotransparente.png" alt="Logo">
+            <img src="img/Logotransparente.png" alt="Logo">
 
-    <h1>SaberHacer</h1>
-</a>
-        </div>
+            <h1>SaberHacer</h1>
+
+        </a>
 
         <nav>
+
             <a href="#" class="activo">Inicio</a>
+
             <a href="miprogreso.html">Mi progreso</a>
+
             <a href="Cursos.html">Cursos</a>
+
             <a href="#">Certificados</a>
+
+            <!-- BUSCAR -->
+
             <div class="buscar-container">
 
-            <a href="#" onclick="abrirBusqueda()">Buscar
-            </a>
+                <a href="#" onclick="abrirBusqueda()">
+                    Buscar
+                </a>
 
-            <div class="barra-busqueda" id="busqueda">
+                <div class="barra-busqueda" id="busqueda">
 
-            <input type="text" placeholder="Buscar cursos...">
+                    <input type="text"
+                           placeholder="Buscar cursos...">
+
+                </div>
 
             </div>
 
-        </div>
+            <!-- ICONOS -->
 
             <div class="iconos">
-                    <div class="notificacion-container">
 
-        <img src="img/notificaciones.png"
-             alt="Notificaciones"
-             onclick="abrirNotificaciones()">
+                <!-- NOTIFICACIONES -->
 
-        <div class="panel-notificaciones" id="panel">
+                <div class="notificacion-container">
 
-            <h3>Notificaciones</h3>
-            <p>📚 Nueva actividad disponible</p>
-            <p>📝 El examen será el viernes</p>
-            <p>🎉 Nuevo curso agregado</p>
+                    <img src="img/notificaciones.png"
+                         alt="Notificaciones"
+                         onclick="abrirNotificaciones()">
 
-        </div>
-    </div>
-</div>
-        <a href="Perfil.html">
-        <img src="img/usuario.png" alt="usuario" width="35">
+                    <div class="panel-notificaciones"
+                         id="panel">
+
+                        <h3>Notificaciones</h3>
+
+                        <p>📚 Nueva actividad disponible</p>
+
+                        <p>📝 El examen será el viernes</p>
+
+                        <p>🎉 Nuevo curso agregado</p>
+
+                    </div>
+
+                </div>
+
+                <!-- PERFIL -->
+
+                <a href="Perfil.html">
+
+                    <img src="img/usuario.png"
+                         alt="usuario">
+
                 </a>
+
             </div>
+
         </nav>
 
     </header>
 
     <!-- CONTENIDO -->
 
-<section class="contenido">
+    <section class="contenido">
 
-    <h2>Bienvenido, Angel!</h2>
+        <h2>Bienvenido, Angel!</h2>
 
-    <div class="tarjetas">
+        <!-- TARJETAS -->
 
-        <div class="card">
+        <div class="tarjetas">
 
-            <h3>Resumen</h3>
+            <div class="card">
 
-            <p>Curso en progreso: Técnico en mercadeo</p>
-            <p>Progreso del curso: 62%</p>
-            <p>Actividades pendientes: 2</p>
+                <h3>Resumen</h3>
+
+                <p>Curso en progreso: Técnico en mercadeo</p>
+
+                <p>Progreso del curso: 62%</p>
+
+                <p>Actividades pendientes: 2</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Notificaciones</h3>
+
+                <p>
+                    Se vence Actividad de aprendizaje 9
+                    (14/05/2026)
+                </p>
+
+                <p>
+                    Segundo examen (16/05/2026)
+                </p>
+
+            </div>
 
         </div>
 
-        <div class="card">
+        <!-- BOTON QUIZ -->
 
-            <h3>Notificaciones</h3>
-
-            <p>Se vence Actividad de aprendizaje 9 (14/05/2026)</p>
-            <p>Segundo examen (16/05/2026)</p>
-
+        <div class="contenedor-quiz">
+            <a href="quizz.html" class="btn-quiz">
+                ¿No sabes qué estudiar?
+            </a>
         </div>
 
-    </div>
+        <!-- CALENDARIO -->
 
-    <!-- BOTON QUIZ -->
-
-    <div class="contenedor-quiz">
-
-        <a href="quizz.html" class="btn-quiz">
-            ¿No sabes qué estudiar?
-        </a>
-
-    </div>
-
-    <!-- CALENDARIO -->
-
-    <div class="calendario">
-
-        <a href="Calendario.html" class="btn-calendario">
-
-            <h3>Calendario de eventos</h3>
-
-        </a>
-
-    </div>
-
-</section>
-
+        <div class="calendario">
+            <a href="Calendario.html"
+               class="btn-calendario">
+                <h3>Calendario de eventos</h3>
+            </a>
+        </div>
+    </section>
+    <!-- FOOTER -->
     <footer>
-
         <div class="soporte">
             📞
             <div>
+
                 <p>Soporte técnico</p>
+
                 <p>809-000-9999</p>
+
             </div>
+
         </div>
 
     </footer>
-  <script>
 
-function abrirNotificaciones(){
+    <!-- JAVASCRIPT -->
 
-    let panel = document.getElementById("panel");
+    <script>
 
-    if(panel.style.display === "block"){
-        panel.style.display = "none";
-    }
-    else{
-        panel.style.display = "block";
-    }
+        function abrirNotificaciones(){
 
-}
+            let panel =
+                document.getElementById("panel");
 
-function abrirBusqueda(){
+            if(panel.style.display === "block"){
 
-    let barra = document.getElementById("busqueda");
+                panel.style.display = "none";
+            }
+            else{
 
-    if(barra.style.display === "block"){
-        barra.style.display = "none";
-    }
-    else{
-        barra.style.display = "block";
-    }
+                panel.style.display = "block";
+            }
+        }
 
-}
-</script>
+        function abrirBusqueda(){
+
+            let barra =
+                document.getElementById("busqueda");
+
+            if(barra.style.display === "block"){
+
+                barra.style.display = "none";
+            }
+            else{
+
+                barra.style.display = "block";
+            }
+        }
+
+    </script>
+
 </body>
 </html>
