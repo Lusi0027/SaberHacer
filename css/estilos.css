@@ -30,9 +30,9 @@ header {
     height: 600px;
     background: #000000;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, hsla(127, 49%, 25%, 1), hsla(127, 49%, 25%, 1)), url(../img/Escuela.png);
+    background: -webkit-linear-gradient(to right, hsla(127, 49%, 25%, 1), hsla(127, 49%, 25%, 1)), url(../img/descubre.jpg);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, hsla(124, 29%, 19%, 0.459), hsla(131, 45%, 30%, 0.664)), url(../img/Escuela.png);
+    background: linear-gradient(to right, hsla(124, 29%, 19%, 0.459), hsla(131, 45%, 30%, 0.664)), url(../img/descubre.jpg);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
     background-attachment: fixed;
@@ -431,4 +431,31 @@ footer{
     .titulo-final{
         font-size: 20px;
     }
+}
+
+/* Contenedor del botón */
+.hero-buttons{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Botón verde más pequeño */
+.btn-orientacion{
+    display: inline-block;
+    background: #45c12e;
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;      /* Tamaño del texto más pequeño */
+    font-weight: bold;
+    padding: 16px 35px;     /* Menos alto y menos ancho */
+    border-radius: 22px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.btn-orientacion:hover{
+    background: #3aae27;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
