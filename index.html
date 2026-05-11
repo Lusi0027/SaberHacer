@@ -4,541 +4,535 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SaberHacer</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-
     *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Inter',sans-serif;
-    }
-
-    body{
-      background:#f5f5f5;
-      color:#111;
-    }
-
-    header{
-      width:100%;
-      background:#021d08;
-      padding:18px 60px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:sticky;
-      top:0;
-      z-index:100;
-    }
-
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      color:white;
-      font-size:35px;
-      font-weight:800;
-    }
-
-    .logo span{
-      font-size:20px;
-    }
-
-    nav{
-      display:flex;
-      gap:45px;
-    }
-
-    nav a{
-      color:white;
-      text-decoration:none;
-      font-weight:700;
-      transition:0.3s;
-    }
-
-    nav a:hover{
-      color:#2fff68;
-    }
-
-    .header-buttons{
-      display:flex;
-      gap:15px;
-    }
-
-    .btn{
-      padding:14px 25px;
-      border-radius:8px;
-      border:none;
-      cursor:pointer;
-      font-weight:700;
-      transition:0.3s;
-    }
-
-    .btn-login{
-      background:transparent;
-      border:2px solid rgba(255,255,255,0.6);
-      color:white;
-    }
-
-    .btn-register{
-      background:#23d84e;
-      color:white;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .main-grid{
-      display:flex;
-      flex-direction:column;
-    }
-
-    .hero{
-      background:linear-gradient(to right,#00b53c,#4fff8b);
-      min-height:560px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:60px;
-      overflow:hidden;
-      position:relative;
-    }
-
-    .hero::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.2);
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      color:white;
-      max-width:520px;
-    }
-
-    .hero-content h4{
-      font-size:20px;
-      margin-bottom:25px;
-    }
-
-    .hero-content h1{
-      font-size:72px;
-      line-height:1;
-      margin-bottom:25px;
-      font-weight:800;
-    }
-
-    .hero-content p{
-      font-size:25px;
-      line-height:1.6;
-      text-align:justify;
-    }
-
-    .hero-right{
-      position:relative;
-      z-index:2;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:22px;
-    }
-
-    .hero-right img{
-      width:520px;
-      border-radius:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.3);
-    }
-
-    .help-btn{
-      background:#021d08;
-      color:white;
-      border:2px solid #23d84e;
-      padding:16px 30px;
-      border-radius:14px;
-      font-size:18px;
-      font-weight:700;
-      cursor:pointer;
-      transition:0.3s;
-      box-shadow:0 6px 18px rgba(0,0,0,0.25);
-    }
-
-    .help-btn:hover{
-      background:#23d84e;
-      transform:translateY(-3px);
-    }
-
-    .plans-section{
-      background:white;
-      padding:50px 40px;
-    }
-
-    .section-title{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:20px;
-      margin-bottom:30px;
-      font-weight:800;
-    }
-
-    .circle{
-      width:42px;
-      height:42px;
-      background:#12c54a;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-weight:800;
-    }
-
-    .plans{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .plan-card{
-      border:2px solid #d6e9d7;
-      border-radius:18px;
-      overflow:hidden;
-      background:white;
-    }
-
-    .plan-header{
-      padding:18px;
-      color:white;
-      font-size:28px;
-      font-weight:800;
-    }
-
-    .green{background:#00c93a;}
-    .light{background:#9ae547;}
-    .dark{background:#0cd64d;}
-
-    .plan-body{
-      padding:25px;
-    }
-
-    .price{
-      font-size:45px;
-      font-weight:800;
-      margin-bottom:10px;
-    }
-
-    .plan-body p{
-      margin-bottom:20px;
-      font-size:18px;
-    }
-
-    .plan-body ul{
-      list-style:none;
-      margin-bottom:25px;
-    }
-
-    .plan-body li{
-      margin-bottom:15px;
-      font-size:17px;
-    }
-
-    .plan-body li::before{
-      content:'✔';
-      color:#09be3e;
-      margin-right:10px;
-      font-weight:800;
-    }
-
-    .info-box{
-      background:#eef8eb;
-      padding:18px;
-      border-radius:12px;
-      font-size:15px;
-      line-height:1.7;
-      text-align:justify;
-    }
-
-    .jobs-section{
-      background:#fafafa;
-      padding:60px;
-    }
-
-    .jobs-section h2{
-      font-size:52px;
-      margin-bottom:15px;
-    }
-
-    .jobs-section p{
-      font-size:22px;
-      margin-bottom:40px;
-      text-align:justify;
-    }
-
-    .jobs-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:25px;
-    }
-
-    .job-card{
-      background:#edf7eb;
-      border-radius:18px;
-      padding:30px;
-    }
-
-    .job-card h3{
-      color:#0eaf37;
-      font-size:34px;
-      margin-bottom:20px;
-    }
-
-    .job-card ul{
-      list-style:none;
-      margin-bottom:20px;
-    }
-
-    .job-card li{
-      margin-bottom:14px;
-      font-size:18px;
-    }
-
-    .job-card li::before{
-      content:'•';
-      color:#0ab53c;
-      margin-right:10px;
-      font-weight:800;
-    }
-
-    .job-card img{
-      width:100%;
-      margin-top:20px;
-      border-radius:12px;
-    }
-
-    .institutions{
-      background:white;
-      padding:60px;
-    }
-
-    .institutions p{
-      font-size:22px;
-      margin-bottom:35px;
-      line-height:1.5;
-      text-align:justify;
-    }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      background:white;
-      border-radius:15px;
-      overflow:hidden;
-    }
-
-    th,td{
-      padding:22px;
-      text-align:center;
-      border-bottom:1px solid #ddd;
-      font-size:18px;
-    }
-
-    th{
-      background:#e9f8e8;
-      color:#0aab36;
-      font-size:20px;
-    }
-
-    .courses-section{
-      padding:80px 60px;
-      background:#ececec;
-    }
-
-    .courses-title{
-      text-align:center;
-      font-size:60px;
-      margin-bottom:60px;
-      font-weight:800;
-    }
-
-    .courses-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-    .course-card{
-      position:relative;
-      overflow:hidden;
-      border-radius:8px;
-      cursor:pointer;
-      box-shadow:0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .course-card img{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-      transition:0.5s;
-      display:block;
-    }
-
-    .course-overlay{
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.65);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      gap:18px;
-      opacity:0;
-      transition:0.4s;
-      color:white;
-    }
-
-    .course-overlay i{
-      font-size:55px;
-      color:#2fff68;
-    }
-
-    .course-overlay h3{
-      font-size:30px;
-      font-weight:800;
-      text-align:center;
-      padding:0 10px;
-    }
-
-    .course-card:hover img{
-      transform:scale(1.1);
-    }
-
-    .course-card:hover .course-overlay{
-      opacity:1;
-    }
-
-    footer{
-      background:#021d08;
-      color:white;
-      padding:30px 60px;
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:30px;
-      text-align:center;
-    }
-
-    .footer-item{
-      font-size:20px;
-      font-weight:600;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-    }
-
-    .footer-item i,
-    .logo i{
-      color:#23d84e;
-    }
-
-    @media(max-width:1200px){
-
-      .plans{
-        grid-template-columns:1fr;
-      }
-
-      .hero{
-        flex-direction:column;
-        text-align:center;
-        gap:40px;
-      }
-
-      .hero h1{
-        font-size:52px;
-      }
-
-      .hero-right img{
-        width:100%;
-        max-width:500px;
-      }
-
-      .jobs-grid{
-        grid-template-columns:1fr;
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr 1fr;
-      }
-    }
-
-    @media(max-width:768px){
-
-      header{
-        flex-direction:column;
-        gap:20px;
-        padding:25px;
-      }
-
-      nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:20px;
-      }
-
-      .hero,
-      .jobs-section,
-      .institutions,
-      .plans-section{
-        padding:30px 20px;
-      }
-
-      .hero h1{
-        font-size:42px;
-      }
-
-      .hero p,
-      .jobs-section p,
-      .institutions p{
-        font-size:18px;
-      }
-
-      .jobs-section h2{
-        font-size:38px;
-      }
-
-      table{
-        display:block;
-        overflow-x:auto;
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr;
-      }
-
-      .help-btn{
-        width:100%;
-      }
-    }
-
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+  color:#111;
+}
+
+header{
+  width:100%;
+  background:#021d08;
+  padding:18px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:white;
+  font-size:35px;
+  font-weight:800;
+}
+
+.logo span{
+  font-size:20px;
+}
+
+nav{
+  display:flex;
+  gap:45px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#2fff68;
+}
+
+.header-buttons{
+  display:flex;
+  gap:15px;
+}
+
+.btn{
+  padding:14px 25px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+  transition:0.3s;
+}
+
+.btn-login{
+  background:transparent;
+  border:2px solid rgba(255,255,255,0.6);
+  color:white;
+}
+
+.btn-register{
+  background:#23d84e;
+  color:white;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.main-grid{
+  display:flex;
+  flex-direction:column;
+}
+
+.hero{
+  background:linear-gradient(to right,#00b53c,#4fff8b);
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:60px;
+  overflow:hidden;
+  position:relative;
+}
+
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.2);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  color:white;
+  max-width:520px;
+}
+
+.hero-content h4{
+  font-size:20px;
+  margin-bottom:25px;
+}
+
+.hero-content h1{
+  font-size:72px;
+  line-height:1;
+  margin-bottom:25px;
+  font-weight:800;
+}
+
+.hero-content p{
+  font-size:25px;
+  line-height:1.6;
+  text-align:justify;
+}
+
+.hero img{
+  width:520px;
+  border-radius:20px;
+  position:relative;
+  z-index:2;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* NUEVO CONTENEDOR DE IMAGEN + BOTÓN */
+.hero-image-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  position:relative;
+  z-index:2;
+}
+
+/* NUEVO BOTÓN */
+.help-btn{
+  background:#021d08;
+  color:white;
+  border:2px solid #23d84e;
+  padding:14px 28px;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+.help-btn:hover{
+  background:#23d84e;
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(0,0,0,0.3);
+}
+
+.plans-section{
+  background:white;
+  padding:50px 40px;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:20px;
+  margin-bottom:30px;
+  font-weight:800;
+}
+
+.circle{
+  width:42px;
+  height:42px;
+  background:#12c54a;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:800;
+}
+
+.plans{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.plan-card{
+  border:2px solid #d6e9d7;
+  border-radius:18px;
+  overflow:hidden;
+  background:white;
+}
+
+.plan-header{
+  padding:18px;
+  color:white;
+  font-size:28px;
+  font-weight:800;
+}
+
+.green{background:#00c93a;}
+.light{background:#9ae547;}
+.dark{background:#0cd64d;}
+
+.plan-body{
+  padding:25px;
+}
+
+.price{
+  font-size:45px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.plan-body p{
+  margin-bottom:20px;
+  font-size:18px;
+}
+
+.plan-body ul{
+  list-style:none;
+  margin-bottom:25px;
+}
+
+.plan-body li{
+  margin-bottom:15px;
+  font-size:17px;
+}
+
+.plan-body li::before{
+  content:'✔';
+  color:#09be3e;
+  margin-right:10px;
+  font-weight:800;
+}
+
+.info-box{
+  background:#eef8eb;
+  padding:18px;
+  border-radius:12px;
+  font-size:15px;
+  line-height:1.7;
+  text-align:justify;
+}
+
+.jobs-section{
+  background:#fafafa;
+  padding:60px;
+}
+
+.jobs-section h2{
+  font-size:52px;
+  margin-bottom:15px;
+}
+
+.jobs-section p{
+  font-size:22px;
+  margin-bottom:40px;
+  text-align:justify;
+}
+
+.jobs-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.job-card{
+  background:#edf7eb;
+  border-radius:18px;
+  padding:30px;
+}
+
+.job-card h3{
+  color:#0eaf37;
+  font-size:34px;
+  margin-bottom:20px;
+}
+
+.job-card ul{
+  list-style:none;
+  margin-bottom:20px;
+}
+
+.job-card li{
+  margin-bottom:14px;
+  font-size:18px;
+}
+
+.job-card li::before{
+  content:'•';
+  color:#0ab53c;
+  margin-right:10px;
+  font-weight:800;
+}
+
+.job-card img{
+  width:100%;
+  margin-top:20px;
+  border-radius:12px;
+}
+
+.institutions{
+  background:white;
+  padding:60px;
+}
+
+.institutions p{
+  font-size:22px;
+  margin-bottom:35px;
+  line-height:1.5;
+  text-align:justify;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+th,td{
+  padding:22px;
+  text-align:center;
+  border-bottom:1px solid #ddd;
+  font-size:18px;
+}
+
+th{
+  background:#e9f8e8;
+  color:#0aab36;
+  font-size:20px;
+}
+
+.courses-section{
+  padding:80px 60px;
+  background:#ececec;
+}
+
+.courses-title{
+  text-align:center;
+  font-size:60px;
+  margin-bottom:60px;
+  font-weight:800;
+}
+
+.courses-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.course-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.course-card img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  transition:0.5s;
+  display:block;
+}
+
+.course-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  opacity:0;
+  transition:0.4s;
+  color:white;
+}
+
+.course-overlay i{
+  font-size:55px;
+  color:#2fff68;
+}
+
+.course-overlay h3{
+  font-size:30px;
+  font-weight:800;
+  text-align:center;
+  padding:0 10px;
+}
+
+.course-card:hover img{
+  transform:scale(1.1);
+}
+
+.course-card:hover .course-overlay{
+  opacity:1;
+}
+
+footer{
+  background:#021d08;
+  color:white;
+  padding:30px 60px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+  text-align:center;
+}
+
+.footer-item{
+  font-size:20px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+
+.footer-item i,
+.logo i{
+  color:#23d84e;
+}
+
+@media(max-width:1200px){
+
+  .plans{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    gap:40px;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .hero img{
+    width:100%;
+    max-width:500px;
+  }
+
+  .jobs-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:768px){
+
+  header{
+    flex-direction:column;
+    gap:20px;
+    padding:25px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+  }
+
+  .hero,
+  .jobs-section,
+  .institutions,
+  .plans-section{
+    padding:30px 20px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero p,
+  .jobs-section p,
+  .institutions p{
+    font-size:18px;
+  }
+
+  .jobs-section h2{
+    font-size:38px;
+  }
+
+  table{
+    display:block;
+    overflow-x:auto;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+}
   </style>
 </head>
-
 <body>
 
   <header>
-
     <div class="logo">
       <i class="fa-solid fa-graduation-cap"></i>
       <span>SaberHacer</span>
@@ -552,52 +546,262 @@
     </nav>
 
     <div class="header-buttons">
-      <button class="btn btn-login" onclick="window.location.href='IniciarSesion.html'">
-        INICIAR SESIÓN
-      </button>
-
-      <button class="btn btn-register" onclick="window.location.href='Registro.html'">
-        REGÍSTRATE GRATIS
-      </button>
+      <button class="btn btn-login" onclick="window.location.href='IniciarSesion.html'"> INICIAR SESIÓN</button>
+      <button class="btn btn-register" onclick="window.location.href='Registro.html'">REGÍSTRATE GRATIS</button>
     </div>
-
   </header>
 
   <section class="main-grid">
 
     <div class="hero">
-
       <div class="hero-content">
-
         <h4>¿QUIÉNES SOMOS?</h4>
-
-        <h1>
-          Aprende.
-          Certifícate.
-          Empléate.
-        </h1>
-
+        <h1>Aprende. Certifícate. Empléate.</h1>
         <p>
           SaberHacer es la plataforma donde los jóvenes desarrollan habilidades reales,
           construyen su perfil profesional y se conectan directamente con empresas.
         </p>
+      </div>
+
+        <div class="hero-image-container">
+
+    <img 
+      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" 
+      alt="Equipo trabajando"
+    >
+
+    <!-- BOTÓN FUNCIONAL -->
+    <button 
+      class="help-btn"
+      onclick="window.location.href='quizz.html'"
+    >
+      ¿Necesitas ayuda para escoger?
+    </button>
+
+  </div>
 
       </div>
 
-      <div class="hero-right">
+    <div class="plans-section">
+      <div class="section-title">
+        <div class="circle">C</div>
+        PLANES
+      </div>
 
-        <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
-          alt="Equipo trabajando"
-        >
+      <div class="plans">
 
-       <button class="help-btn"
-        onclick="window.location.href='quizz.html'">
-        
-  ¿Necesitas ayuda para escoger?
+        <div class="plan-card">
+          <div class="plan-header green">Gratis</div>
+          <div class="plan-body">
+            <div class="price">RD$0</div>
+            <p>Empieza sin comprometer nada.</p>
 
-</button>
+            <ul>
+              <li>Cursos grabados</li>
+              <li>Explora tu área de interés</li>
+              <li>Con anuncios</li>
+            </ul>
 
+            <div class="info-box">
+              Refiere amigos y gana beneficios gratuitos.
+            </div>
+          </div>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-header light">Medio</div>
+          <div class="plan-body">
+            <div class="price">RD$700/mes</div>
+            <p>Tu perfil visible ante empleadores.</p>
+
+            <ul>
+              <li>Cursos + certificado</li>
+              <li>Perfil público</li>
+              <li>Aplica a empleos</li>
+              <li>Menos anuncios</li>
+            </ul>
+
+            <div class="info-box">
+              Refiere personas y obtén descuentos.
+            </div>
+          </div>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-header dark">Premium</div>
+          <div class="plan-body">
+            <div class="price">RD$1,000/mes</div>
+            <p>El camino más rápido al empleo.</p>
+
+            <ul>
+              <li>Todo lo del plan Medio</li>
+              <li>Talleres en vivo</li>
+              <li>Perfil destacado</li>
+              <li>Prioridad en empleos</li>
+              <li>Sin anuncios</li>
+            </ul>
+
+            <div class="info-box">
+              Obtén más visibilidad frente a empresas.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <section class="jobs-section">
+
+    <div class="section-title">
+      <div class="circle">D</div>
+      EMPLEOS
+    </div>
+
+    <h2>Tu próxima oportunidad está aquí.</h2>
+    <p>SaberHacer conecta directamente a jóvenes con empresas.</p>
+
+    <div class="jobs-grid">
+
+      <div class="job-card">
+        <h3>JÓVENES</h3>
+
+        <ul>
+          <li>Completa tu curso y obtén tu certificado</li>
+          <li>Activa tu perfil profesional</li>
+          <li>Aplica a empleos y pasantías</li>
+          <li>Plan Premium con perfil destacado</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Jóvenes">
+      </div>
+
+      <div class="job-card">
+        <h3>EMPRESAS</h3>
+
+        <ul>
+          <li>Publicación de empleos gratis</li>
+          <li>Candidatos pre-filtrados</li>
+          <li>Solicitudes ilimitadas</li>
+          <li>Conexión rápida con talentos</li>
+        </ul>
+
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Empresas">
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="institutions">
+
+    <div class="section-title">
+      <div class="circle">E</div>
+      PARA INSTITUCIONES Y EMPRESAS
+    </div>
+
+    <p>
+      Capacita a tu equipo o estudiantes con acceso Premium completo,
+      métricas de progreso y badge institucional verificado.
+    </p>
+
+    <table>
+      <tr>
+        <th>Plan</th>
+        <th>Básico</th>
+        <th>Estándar</th>
+        <th>Avanzado</th>
+        <th>Enterprise</th>
+      </tr>
+
+      <tr>
+        <td><strong>Colegios / Politécnicos</strong></td>
+        <td>Hasta 50 estudiantes<br>RD$10,000/mes</td>
+        <td>51 a 150 estudiantes<br>RD$18,000/mes</td>
+        <td>151 a 300 estudiantes<br>RD$30,000/mes</td>
+        <td>+300 estudiantes<br>A convertir</td>
+      </tr>
+
+      <tr>
+        <td><strong>Empresas</strong></td>
+        <td>Hasta 10 empleados<br>RD$8,000/mes</td>
+        <td>11 a 30 empleados<br>RD$15,000/mes</td>
+        <td>31 a 80 empleados<br>RD$25,000/mes</td>
+        <td>+80 empleados<br>A convertir</td>
+      </tr>
+    </table>
+
+  </section>
+
+  <section class="courses-section">
+
+    <h2 class="courses-title">Nuestros cursos</h2>
+
+    <div class="courses-grid">
+
+      <div class="course-card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Tecnología">
+        <div class="course-overlay">
+          <i class="fa-solid fa-laptop-code"></i>
+          <h3>Tecnología</h3>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1200&auto=format&fit=crop" alt="Salud">
+        <div class="course-overlay">
+          <i class="fa-solid fa-user-doctor"></i>
+          <h3>Salud</h3>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Electrónica">
+        <div class="course-overlay">
+          <i class="fa-solid fa-microchip"></i>
+          <h3>Electrónica</h3>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop" alt="Diseño">
+        <div class="course-overlay">
+          <i class="fa-solid fa-palette"></i>
+          <h3>Diseño Gráfico</h3>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Negocios">
+        <div class="course-overlay">
+          <i class="fa-solid fa-chart-line"></i>
+          <h3>Negocios</h3>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop" alt="Turismo">
+        <div class="course-overlay">
+          <i class="fa-solid fa-plane"></i>
+          <h3>Turismo</h3>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop" alt="Derecho">
+        <div class="course-overlay">
+          <i class="fa-solid fa-scale-balanced"></i>
+          <h3>Derecho</h3>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop" alt="Administración">
+        <div class="course-overlay">
+          <i class="fa-solid fa-briefcase"></i>
+          <h3>Administración</h3>
+        </div>
       </div>
 
     </div>
@@ -605,31 +809,12 @@
   </section>
 
   <footer>
-
     <div class="footer-grid">
-
-      <div class="footer-item">
-        <i class="fa-solid fa-book-open"></i>
-        Aprende habilidades reales
-      </div>
-
-      <div class="footer-item">
-        <i class="fa-solid fa-certificate"></i>
-        Certificados que abren puertas
-      </div>
-
-      <div class="footer-item">
-        <i class="fa-solid fa-briefcase"></i>
-        Conéctate con empresas
-      </div>
-
-      <div class="footer-item">
-        <i class="fa-solid fa-rocket"></i>
-        ¡Tú puedes!
-      </div>
-
+      <div class="footer-item"><i class="fa-solid fa-book-open"></i> Aprende habilidades reales</div>
+      <div class="footer-item"><i class="fa-solid fa-certificate"></i> Certificados que abren puertas</div>
+      <div class="footer-item"><i class="fa-solid fa-briefcase"></i> Conéctate con empresas</div>
+      <div class="footer-item"><i class="fa-solid fa-rocket"></i> ¡Tú puedes!</div>
     </div>
-
   </footer>
 
 </body>
