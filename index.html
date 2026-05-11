@@ -4,12 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SaberHacer</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -140,12 +144,37 @@
       text-align:justify;
     }
 
-    .hero img{
-      width:520px;
-      border-radius:20px;
+    .hero-right{
       position:relative;
       z-index:2;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:22px;
+    }
+
+    .hero-right img{
+      width:520px;
+      border-radius:20px;
       box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .help-btn{
+      background:#021d08;
+      color:white;
+      border:2px solid #23d84e;
+      padding:16px 30px;
+      border-radius:14px;
+      font-size:18px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    .help-btn:hover{
+      background:#23d84e;
+      transform:translateY(-3px);
     }
 
     .plans-section{
@@ -440,7 +469,7 @@
         font-size:52px;
       }
 
-      .hero img{
+      .hero-right img{
         width:100%;
         max-width:500px;
       }
@@ -455,6 +484,7 @@
     }
 
     @media(max-width:768px){
+
       header{
         flex-direction:column;
         gap:20px;
@@ -496,12 +526,19 @@
       .footer-grid{
         grid-template-columns:1fr;
       }
+
+      .help-btn{
+        width:100%;
+      }
     }
+
   </style>
 </head>
+
 <body>
 
   <header>
+
     <div class="logo">
       <i class="fa-solid fa-graduation-cap"></i>
       <span>SaberHacer</span>
@@ -515,246 +552,52 @@
     </nav>
 
     <div class="header-buttons">
-      <button class="btn btn-login" onclick="window.location.href='IniciarSesion.html'"> INICIAR SESIÓN</button>
-      <button class="btn btn-register" onclick="window.location.href='Registro.html'">REGÍSTRATE GRATIS</button>
+      <button class="btn btn-login" onclick="window.location.href='IniciarSesion.html'">
+        INICIAR SESIÓN
+      </button>
+
+      <button class="btn btn-register" onclick="window.location.href='Registro.html'">
+        REGÍSTRATE GRATIS
+      </button>
     </div>
+
   </header>
 
   <section class="main-grid">
 
     <div class="hero">
+
       <div class="hero-content">
+
         <h4>¿QUIÉNES SOMOS?</h4>
-        <h1>Aprende. Certifícate. Empléate.</h1>
+
+        <h1>
+          Aprende.
+          Certifícate.
+          Empléate.
+        </h1>
+
         <p>
           SaberHacer es la plataforma donde los jóvenes desarrollan habilidades reales,
           construyen su perfil profesional y se conectan directamente con empresas.
         </p>
-      </div>
-
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Equipo trabajando">
-    </div>
-
-    <div class="plans-section">
-      <div class="section-title">
-        <div class="circle">C</div>
-        PLANES
-      </div>
-
-      <div class="plans">
-
-        <div class="plan-card">
-          <div class="plan-header green">Gratis</div>
-          <div class="plan-body">
-            <div class="price">RD$0</div>
-            <p>Empieza sin comprometer nada.</p>
-
-            <ul>
-              <li>Cursos grabados</li>
-              <li>Explora tu área de interés</li>
-              <li>Con anuncios</li>
-            </ul>
-
-            <div class="info-box">
-              Refiere amigos y gana beneficios gratuitos.
-            </div>
-          </div>
-        </div>
-
-        <div class="plan-card">
-          <div class="plan-header light">Medio</div>
-          <div class="plan-body">
-            <div class="price">RD$700/mes</div>
-            <p>Tu perfil visible ante empleadores.</p>
-
-            <ul>
-              <li>Cursos + certificado</li>
-              <li>Perfil público</li>
-              <li>Aplica a empleos</li>
-              <li>Menos anuncios</li>
-            </ul>
-
-            <div class="info-box">
-              Refiere personas y obtén descuentos.
-            </div>
-          </div>
-        </div>
-
-        <div class="plan-card">
-          <div class="plan-header dark">Premium</div>
-          <div class="plan-body">
-            <div class="price">RD$1,000/mes</div>
-            <p>El camino más rápido al empleo.</p>
-
-            <ul>
-              <li>Todo lo del plan Medio</li>
-              <li>Talleres en vivo</li>
-              <li>Perfil destacado</li>
-              <li>Prioridad en empleos</li>
-              <li>Sin anuncios</li>
-            </ul>
-
-            <div class="info-box">
-              Obtén más visibilidad frente a empresas.
-            </div>
-          </div>
-        </div>
 
       </div>
-    </div>
 
-  </section>
+      <div class="hero-right">
 
-  <section class="jobs-section">
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+          alt="Equipo trabajando"
+        >
 
-    <div class="section-title">
-      <div class="circle">D</div>
-      EMPLEOS
-    </div>
+       <button class="help-btn"
+        onclick="window.location.href='quizz.html'">
+        
+  ¿Necesitas ayuda para escoger?
 
-    <h2>Tu próxima oportunidad está aquí.</h2>
-    <p>SaberHacer conecta directamente a jóvenes con empresas.</p>
+</button>
 
-    <div class="jobs-grid">
-
-      <div class="job-card">
-        <h3>JÓVENES</h3>
-
-        <ul>
-          <li>Completa tu curso y obtén tu certificado</li>
-          <li>Activa tu perfil profesional</li>
-          <li>Aplica a empleos y pasantías</li>
-          <li>Plan Premium con perfil destacado</li>
-        </ul>
-
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Jóvenes">
-      </div>
-
-      <div class="job-card">
-        <h3>EMPRESAS</h3>
-
-        <ul>
-          <li>Publicación de empleos gratis</li>
-          <li>Candidatos pre-filtrados</li>
-          <li>Solicitudes ilimitadas</li>
-          <li>Conexión rápida con talentos</li>
-        </ul>
-
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Empresas">
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="institutions">
-
-    <div class="section-title">
-      <div class="circle">E</div>
-      PARA INSTITUCIONES Y EMPRESAS
-    </div>
-
-    <p>
-      Capacita a tu equipo o estudiantes con acceso Premium completo,
-      métricas de progreso y badge institucional verificado.
-    </p>
-
-    <table>
-      <tr>
-        <th>Plan</th>
-        <th>Básico</th>
-        <th>Estándar</th>
-        <th>Avanzado</th>
-        <th>Enterprise</th>
-      </tr>
-
-      <tr>
-        <td><strong>Colegios / Politécnicos</strong></td>
-        <td>Hasta 50 estudiantes<br>RD$10,000/mes</td>
-        <td>51 a 150 estudiantes<br>RD$18,000/mes</td>
-        <td>151 a 300 estudiantes<br>RD$30,000/mes</td>
-        <td>+300 estudiantes<br>A convertir</td>
-      </tr>
-
-      <tr>
-        <td><strong>Empresas</strong></td>
-        <td>Hasta 10 empleados<br>RD$8,000/mes</td>
-        <td>11 a 30 empleados<br>RD$15,000/mes</td>
-        <td>31 a 80 empleados<br>RD$25,000/mes</td>
-        <td>+80 empleados<br>A convertir</td>
-      </tr>
-    </table>
-
-  </section>
-
-  <section class="courses-section">
-
-    <h2 class="courses-title">Nuestros cursos</h2>
-
-    <div class="courses-grid">
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Tecnología">
-        <div class="course-overlay">
-          <i class="fa-solid fa-laptop-code"></i>
-          <h3>Tecnología</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1200&auto=format&fit=crop" alt="Salud">
-        <div class="course-overlay">
-          <i class="fa-solid fa-user-doctor"></i>
-          <h3>Salud</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Electrónica">
-        <div class="course-overlay">
-          <i class="fa-solid fa-microchip"></i>
-          <h3>Electrónica</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop" alt="Diseño">
-        <div class="course-overlay">
-          <i class="fa-solid fa-palette"></i>
-          <h3>Diseño Gráfico</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Negocios">
-        <div class="course-overlay">
-          <i class="fa-solid fa-chart-line"></i>
-          <h3>Negocios</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop" alt="Turismo">
-        <div class="course-overlay">
-          <i class="fa-solid fa-plane"></i>
-          <h3>Turismo</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop" alt="Derecho">
-        <div class="course-overlay">
-          <i class="fa-solid fa-scale-balanced"></i>
-          <h3>Derecho</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop" alt="Administración">
-        <div class="course-overlay">
-          <i class="fa-solid fa-briefcase"></i>
-          <h3>Administración</h3>
-        </div>
       </div>
 
     </div>
@@ -762,12 +605,31 @@
   </section>
 
   <footer>
+
     <div class="footer-grid">
-      <div class="footer-item"><i class="fa-solid fa-book-open"></i> Aprende habilidades reales</div>
-      <div class="footer-item"><i class="fa-solid fa-certificate"></i> Certificados que abren puertas</div>
-      <div class="footer-item"><i class="fa-solid fa-briefcase"></i> Conéctate con empresas</div>
-      <div class="footer-item"><i class="fa-solid fa-rocket"></i> ¡Tú puedes!</div>
+
+      <div class="footer-item">
+        <i class="fa-solid fa-book-open"></i>
+        Aprende habilidades reales
+      </div>
+
+      <div class="footer-item">
+        <i class="fa-solid fa-certificate"></i>
+        Certificados que abren puertas
+      </div>
+
+      <div class="footer-item">
+        <i class="fa-solid fa-briefcase"></i>
+        Conéctate con empresas
+      </div>
+
+      <div class="footer-item">
+        <i class="fa-solid fa-rocket"></i>
+        ¡Tú puedes!
+      </div>
+
     </div>
+
   </footer>
 
 </body>
