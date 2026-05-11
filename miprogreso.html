@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-512x512 (1).png">
+
+    <link rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="img/android-chrome-512x512 (1).png">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <title>SaberHacer - Técnico de Mercadeo</title>
 
     <style>
@@ -16,40 +25,50 @@
         }
 
         body{
-            background-color: #f3f3f3;
+            background: linear-gradient(135deg, #031406, #16a637);
+            min-height: 100vh;
+            color: white;
         }
 
         /* ===== HEADER ===== */
 
         header{
 
-            background-color: white;
+            background: #021b06;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            padding: 15px 40px;
+            padding: 18px 50px;
 
-            border-bottom: 3px solid #17396d;
+            border-bottom: 2px solid rgba(255,255,255,0.08);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.25);
         }
 
         .logo{
 
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
 
             text-decoration: none;
-            color: black;
+            color: white;
         }
 
-        .logo img{
-            width: 65px;
+        .logo i{
+            font-size: 55px;
+            color: #2be34f;
         }
 
         .logo h1{
-            font-size: 35px;
+            font-size: 38px;
+            font-weight: 800;
         }
 
         nav{
@@ -63,61 +82,67 @@
 
             text-decoration: none;
 
-            color: black;
+            color: white;
 
             font-weight: bold;
 
-            padding: 10px 18px;
+            padding: 12px 18px;
 
-            border-radius: 20px;
+            border-radius: 14px;
 
             transition: 0.3s;
         }
 
         nav a:hover{
 
-            background-color: #7ed957;
+            background-color: #2be34f;
 
-            transform: scale(1.08);
+            transform: translateY(-2px);
         }
 
         .activo{
 
-            background-color: #45b833;
+            background-color: #2be34f;
         }
+
+        /* ===== ICONOS ===== */
 
         .iconos{
 
             display: flex;
-            gap: 15px;
+            gap: 18px;
+            align-items: center;
         }
 
-        .iconos img{
+        .iconos i{
 
-            width: 32px;
+            font-size: 28px;
+
+            color: white;
 
             cursor: pointer;
 
             transition: 0.3s;
         }
 
-        .iconos img:hover{
+        .iconos i:hover{
 
             transform: scale(1.1);
 
-            filter: brightness(80%);
+            color: #7cff95;
         }
 
         /* ===== TITULO ===== */
 
         .titulo{
 
-            padding: 30px 70px 10px;
+            padding: 40px 70px 10px;
         }
 
         .titulo h2{
 
-            font-size: 45px;
+            font-size: 55px;
+            font-weight: 800;
         }
 
         /* ===== TABS ===== */
@@ -129,33 +154,39 @@
 
             gap: 40px;
 
-            background-color: white;
+            background: rgba(0,0,0,0.25);
 
-            padding: 15px;
+            backdrop-filter: blur(10px);
 
-            border-top: 3px solid #17396d;
-            border-bottom: 3px solid #17396d;
+            padding: 18px;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .tabs a{
 
             text-decoration: none;
 
-            color: black;
+            color: white;
 
             font-weight: bold;
 
             transition: 0.3s;
+
+            padding: 10px 16px;
+
+            border-radius: 12px;
         }
 
         .tabs a:hover{
 
-            color: #45b833;
+            background: #2be34f;
         }
 
         .bloqueado{
 
-            color: gray !important;
+            color: rgba(255,255,255,0.45) !important;
 
             cursor: not-allowed;
         }
@@ -171,22 +202,28 @@
 
         .seccion{
 
-            background-color: white;
+            background: rgba(0,0,0,0.25);
 
-            border: 1px solid #8ba0c4;
+            backdrop-filter: blur(10px);
 
-            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.10);
 
-            padding: 25px;
+            border-radius: 20px;
+
+            padding: 30px;
 
             margin-bottom: 40px;
+
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.25);
         }
 
         .seccion h3{
 
             font-size: 38px;
 
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+
+            color: #7cff95;
         }
 
         /* ===== ITEMS ===== */
@@ -196,22 +233,28 @@
             display: flex;
             align-items: center;
 
-            gap: 15px;
+            gap: 18px;
 
-            margin-bottom: 20px;
+            margin-bottom: 22px;
 
             font-size: 22px;
 
             transition: 0.3s;
 
             cursor: pointer;
+
+            padding: 12px;
+
+            border-radius: 12px;
         }
 
         .item:hover{
 
-            transform: scale(1.01);
+            transform: translateX(6px);
 
-            color: #45b833;
+            background: rgba(255,255,255,0.06);
+
+            color: #7cff95;
         }
 
         .item img{
@@ -222,96 +265,148 @@
         /* ===== BUSQUEDA ===== */
 
         .buscar-container{
-    position: relative;
-}
+            position: relative;
+        }
 
-.barra-busqueda{
+        .barra-busqueda{
 
-    display: none;
+            display: none;
 
-    position: absolute;
+            position: absolute;
 
-    top: 40px;
-    right: 0;
+            top: 50px;
+            right: 0;
 
-    background-color: white;
+            background: rgba(0,0,0,0.92);
 
-    padding: 12px;
+            padding: 14px;
 
-    border-radius: 12px;
+            border-radius: 14px;
 
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.30);
 
-    z-index: 100;
-}
+            z-index: 100;
 
-.barra-busqueda input{
+            border: 1px solid rgba(255,255,255,0.08);
+        }
 
-    width: 250px;
+        .barra-busqueda input{
 
-    padding: 10px;
+            width: 250px;
 
-    border: 2px solid #45b833;
+            padding: 12px;
 
-    border-radius: 8px;
+            border: 2px solid #2be34f;
 
-    outline: none;
-}
+            border-radius: 10px;
 
-/* ===== NOTIFICACIONES ===== */
+            outline: none;
 
-.notificacion-container{
-    position: relative;
-}
+            background: rgba(255,255,255,0.08);
 
-.panel-notificaciones{
+            color: white;
+        }
 
-    display: none;
+        .barra-busqueda input::placeholder{
+            color: rgba(255,255,255,0.6);
+        }
 
-    position: absolute;
+        /* ===== NOTIFICACIONES ===== */
 
-    top: 45px;
-    right: 0;
+        .notificacion-container{
+            position: relative;
+        }
 
-    width: 300px;
+        .panel-notificaciones{
 
-    background-color: white;
+            display: none;
 
-    border-radius: 12px;
+            position: absolute;
 
-    padding: 15px;
+            top: 50px;
+            right: 0;
 
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+            width: 320px;
 
-    z-index: 100;
-}
+            background: rgba(0,0,0,0.92);
 
-.panel-notificaciones h3{
+            border-radius: 16px;
 
-    margin-bottom: 15px;
+            padding: 18px;
 
-    color: #17396d;
-}
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.30);
 
-.panel-notificaciones p{
+            z-index: 100;
 
-    margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
 
-    padding: 8px;
+        .panel-notificaciones h3{
 
-    border-radius: 8px;
+            margin-bottom: 15px;
 
-    transition: 0.2s;
-}
+            color: #2be34f;
+        }
 
-.panel-notificaciones p:hover{
+        .panel-notificaciones p{
 
-    background-color: #e8ffe5;
-}
+            margin-bottom: 10px;
+
+            padding: 10px;
+
+            border-radius: 10px;
+
+            transition: 0.2s;
+        }
+
+        .panel-notificaciones p:hover{
+
+            background-color: rgba(43,227,79,0.15);
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        @media(max-width:900px){
+
+            header{
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            nav{
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .titulo{
+                padding: 30px 20px 10px;
+                text-align: center;
+            }
+
+            .titulo h2{
+                font-size: 42px;
+            }
+
+            .tabs{
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .contenedor{
+                width: 95%;
+            }
+
+            .item{
+                font-size: 18px;
+            }
+
+        }
 
     </style>
 
 </head>
+
 <body>
 
     <!-- HEADER -->
@@ -320,7 +415,7 @@
 
         <a href="Inicio.html" class="logo">
 
-            <img src="img/Logotransparente.png" alt="Logo">
+            <i class="fa-solid fa-graduation-cap"></i>
 
             <h1>SaberHacer</h1>
 
@@ -340,44 +435,51 @@
 
             <!-- BUSCAR -->
 
-<div class="buscar-container">
+            <div class="buscar-container">
 
-    <a href="#" onclick="abrirBusqueda()">
-        Buscar
-    </a>
+                <a href="#" onclick="abrirBusqueda()">
+                    Buscar
+                </a>
 
-    <div class="barra-busqueda" id="busqueda">
+                <div class="barra-busqueda" id="busqueda">
 
-        <input type="text" placeholder="Buscar cursos...">
+                    <input type="text"
+                           placeholder="Buscar cursos...">
 
-    </div>
+                </div>
 
-</div>
+            </div>
 
-<!-- ICONOS -->
+            <!-- ICONOS -->
 
-<div class="iconos">
+            <div class="iconos">
 
-    <!-- NOTIFICACIONES -->
+                <!-- NOTIFICACIONES -->
 
-    <div class="notificacion-container">
+                <div class="notificacion-container">
 
-        <img src="img/notificaciones.png"
-             alt="Notificaciones"
-             onclick="abrirNotificaciones()">
+                    <i class="fa-solid fa-bell"
+                       onclick="abrirNotificaciones()"></i>
 
-        <div class="panel-notificaciones" id="panel">
+                    <div class="panel-notificaciones" id="panel">
 
-            <h3>Notificaciones</h3>
-            <p>📚 Nueva actividad disponible</p>
-            <p>📝 Entrega pendiente mañana</p>
-            <p>🎉 Nuevo curso agregado</p>
-        </div>
-    </div>
+                        <h3>Notificaciones</h3>
 
-    <img src="img/usuario.png" alt="Perfil">
+                        <p>📚 Nueva actividad disponible</p>
 
-</div>
+                        <p>📝 Entrega pendiente mañana</p>
+
+                        <p>🎉 Nuevo curso agregado</p>
+
+                    </div>
+
+                </div>
+
+                <!-- PERFIL -->
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
 
         </nav>
 
@@ -387,7 +489,7 @@
 
     <section class="titulo">
 
-        <h2>Tecnico de Mercadeo</h2>
+        <h2>Técnico de Mercadeo</h2>
 
     </section>
 
@@ -415,7 +517,7 @@
 
         <div class="seccion">
 
-            <h3>General▼</h3>
+            <h3>General ▼</h3>
 
             <div class="item">
 
@@ -447,7 +549,7 @@
 
         <div class="seccion">
 
-            <h3>Unidad 1▼</h3>
+            <h3>Unidad 1 ▼</h3>
 
             <div class="item">
 
@@ -501,35 +603,37 @@
 
     </section>
 
+    <!-- JAVASCRIPT -->
 
     <script>
 
-function abrirNotificaciones(){
+        function abrirNotificaciones(){
 
-    let panel = document.getElementById("panel");
+            let panel = document.getElementById("panel");
 
-    if(panel.style.display === "block"){
-        panel.style.display = "none";
-    }
-    else{
-        panel.style.display = "block";
-    }
+            if(panel.style.display === "block"){
+                panel.style.display = "none";
+            }
+            else{
+                panel.style.display = "block";
+            }
 
-}
+        }
 
-function abrirBusqueda(){
+        function abrirBusqueda(){
 
-    let barra = document.getElementById("busqueda");
+            let barra = document.getElementById("busqueda");
 
-    if(barra.style.display === "block"){
-        barra.style.display = "none";
-    }
-    else{
-        barra.style.display = "block";
-    }
+            if(barra.style.display === "block"){
+                barra.style.display = "none";
+            }
+            else{
+                barra.style.display = "block";
+            }
 
-}
+        }
 
-</script>
+    </script>
+
 </body>
 </html>
