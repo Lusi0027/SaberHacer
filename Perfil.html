@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - SaberHacer</title>
+    <title>Perfil IA - SaberHacer</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
 
@@ -15,8 +19,11 @@
         }
 
         body{
-            background: linear-gradient(135deg, #0b3d0b, #1fc84f);
+
+            background: black;
+
             min-height: 100vh;
+
             color: white;
         }
 
@@ -24,7 +31,7 @@
 
         header{
 
-            background-color: #001a00;
+            background-color: black;
 
             display: flex;
             justify-content: space-between;
@@ -39,9 +46,11 @@
 
             display: flex;
             align-items: center;
+
             gap: 15px;
 
             text-decoration: none;
+
             color: white;
         }
 
@@ -51,7 +60,6 @@
 
         .logo h1{
             font-size: 30px;
-            font-weight: bold;
         }
 
         /* ===== NAV ===== */
@@ -60,6 +68,7 @@
 
             display: flex;
             align-items: center;
+
             gap: 18px;
         }
 
@@ -71,7 +80,7 @@
 
             font-weight: bold;
 
-            font-size: 20px;
+            font-size: 18px;
 
             padding: 14px 22px;
 
@@ -84,225 +93,12 @@
 
             background-color: #2ddf56;
 
-            color: white;
-
             transform: scale(1.05);
         }
 
         .activo{
 
             background-color: #2ddf56;
-
-            color: white;
-        }
-
-        /* ===== BUSQUEDA ===== */
-
-        .buscar-container{
-            position: relative;
-        }
-
-        .barra-busqueda{
-
-            display: none;
-
-            position: absolute;
-
-            top: 60px;
-            right: 0;
-
-            background-color: #001a00;
-
-            padding: 14px;
-
-            border-radius: 14px;
-
-            box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
-
-            z-index: 100;
-        }
-
-        .barra-busqueda input{
-
-            width: 250px;
-
-            padding: 12px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            outline: none;
-
-            background-color: white;
-
-            color: black;
-        }
-
-        /* ===== ICONOS ===== */
-
-        .iconos{
-
-            display: flex;
-            align-items: center;
-
-            gap: 18px;
-        }
-
-        .iconos img{
-
-            width: 35px;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-
-            filter: brightness(0) invert(1);
-        }
-
-        .iconos img:hover{
-
-            transform: scale(1.1);
-        }
-
-        .perfil-container{
-            position: relative;
-        }
-
-        .perfil-btn{
-
-            width: 40px;
-            height: 50px;
-
-            border-radius: 50%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            transition: 0.3s;
-
-            cursor: pointer;
-        }
-
-        .perfil-btn:hover{
-
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        .perfil-btn img{
-
-            width: 50px;
-
-            filter: brightness(0) invert(1);
-        }
-
-        /* ===== MENU PERFIL ===== */
-
-        .menu-perfil{
-
-            display: none;
-
-            position: absolute;
-
-            top: 65px;
-            right: 0;
-
-            background-color: #001a00;
-
-            border-radius: 15px;
-
-            width: 220px;
-
-            overflow: hidden;
-
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
-
-            z-index: 100;
-        }
-
-        .menu-perfil a{
-
-            display: block;
-
-            padding: 16px 20px;
-
-            color: white;
-
-            text-decoration: none;
-
-            font-size: 17px;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .menu-perfil a:hover{
-
-            background-color: #2ddf56;
-
-            color: black;
-        }
-
-        .cerrar-sesion{
-
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* ===== NOTIFICACIONES ===== */
-
-        .notificacion-container{
-            position: relative;
-        }
-
-        .panel-notificaciones{
-
-            display: none;
-
-            position: absolute;
-
-            top: 55px;
-            right: 0;
-
-            width: 320px;
-
-            background-color: #001a00;
-
-            border-radius: 16px;
-
-            padding: 18px;
-
-            box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
-
-            z-index: 100;
-        }
-
-        .panel-notificaciones h3{
-
-            margin-bottom: 15px;
-
-            color: #2ddf56;
-
-            font-size: 24px;
-        }
-
-        .panel-notificaciones p{
-
-            margin-bottom: 10px;
-
-            padding: 10px;
-
-            border-radius: 10px;
-
-            transition: 0.2s;
-
-            font-size: 17px;
-        }
-
-        .panel-notificaciones p:hover{
-
-            background-color: rgba(255,255,255,0.08);
         }
 
         /* ===== PERFIL ===== */
@@ -315,80 +111,179 @@
 
             gap: 40px;
 
-            padding: 70px 80px;
+            padding: 60px 80px 30px;
         }
 
         .perfil img{
 
-            width: 180px;
+            width: 170px;
 
-            height: 180px;
+            height: 170px;
 
             border-radius: 50%;
 
-            border: 6px solid white;
+            border: 5px solid white;
         }
 
         .info-principal h2{
 
-            font-size: 70px;
+            font-size: 60px;
 
             margin-bottom: 10px;
-
-            font-weight: bold;
         }
 
         .info-principal p{
 
-            font-size: 30px;
+            font-size: 24px;
 
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.85);
         }
 
         /* ===== CONTENEDOR ===== */
 
         .contenedor{
 
-            width: 1100px;
+            width: 92%;
 
             margin: auto;
 
             margin-bottom: 60px;
 
-            background-color: rgba(0,0,0,0.15);
+            display: grid;
 
-            border-radius: 30px;
-
-            padding: 45px;
-
-            display: flex;
-            justify-content: space-between;
-
-            backdrop-filter: blur(8px);
-        }
-
-        .columna{
-
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 
             gap: 30px;
         }
 
-        .dato h3{
+        /* ===== CARDS ===== */
 
-            font-size: 25px;
+        .card{
+
+            background: #001a00;
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
+
+            transition: 0.3s;
+        }
+
+        .card:hover{
+
+            transform: translateY(-5px);
+        }
+
+        .card-top{
+
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .card-top i{
+
+            font-size: 34px;
+
+            color: #7dff97;
+        }
+
+        .card h2{
+
+            font-size: 30px;
+        }
+
+        .card p{
+
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            margin-bottom: 14px;
+
+            color: rgba(255,255,255,0.92);
+        }
+
+        /* ===== DATOS ===== */
+
+        .dato{
+
+            margin-bottom: 25px;
+        }
+
+        .dato h3{
 
             margin-bottom: 10px;
 
-            color: white;
+            font-size: 23px;
+
+            color: #7dff97;
         }
 
         .dato p{
 
-            font-size: 22px;
+            font-size: 20px;
+        }
 
-            color: rgba(255,255,255,0.9);
+        /* ===== PROGRESO ===== */
+
+        .barra{
+
+            width: 100%;
+
+            height: 18px;
+
+            background-color: rgba(255,255,255,0.1);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            margin-top: 15px;
+        }
+
+        .progreso{
+
+            width: 70%;
+
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                #2ddf56,
+                #7dff97
+            );
+        }
+
+        /* ===== SKILLS ===== */
+
+        .skills{
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+        .skill{
+
+            background-color: rgba(255,255,255,0.1);
+
+            padding: 10px 16px;
+
+            border-radius: 20px;
+
+            font-weight: bold;
         }
 
         /* ===== BOTONES ===== */
@@ -396,28 +291,29 @@
         .acciones{
 
             display: flex;
+
             flex-direction: column;
 
-            gap: 25px;
+            gap: 18px;
 
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .acciones button{
 
             background-color: #001a00;
 
-            border: none;
-
             color: white;
 
-            font-size: 18px;
+            border: none;
+
+            padding: 16px;
+
+            border-radius: 14px;
+
+            font-size: 17px;
 
             font-weight: bold;
-
-            padding: 18px 26px;
-
-            border-radius: 15px;
 
             cursor: pointer;
 
@@ -428,37 +324,59 @@
 
             background-color: #2ddf56;
 
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
-        .btn-reportes{
+        /* ===== IA ===== */
 
-            width: fit-content;
+        .ia-box{
 
-            background-color: #001a00;
+            background: rgba(45,223,86,0.12);
 
-            color: white;
+            border-left: 5px solid #7dff97;
 
-            border: none;
-
-            padding: 15px 25px;
+            padding: 18px;
 
             border-radius: 15px;
 
-            font-size: 18px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            transition: 0.3s;
+            margin-top: 20px;
         }
 
-        .btn-reportes:hover{
+        .ia-box p{
 
-            background-color: #2ddf56;
+            margin: 0;
+        }
 
-            transform: scale(1.05);
+        /* ===== RESPONSIVE ===== */
+
+        @media(max-width:900px){
+
+            header{
+
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+            nav{
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .perfil{
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .info-principal h2{
+
+                font-size: 42px;
+            }
+
         }
 
     </style>
@@ -481,79 +399,17 @@
 
         <nav>
 
-            <a href="Inicio.html" class="activo">Inicio</a>
+            <a href="Inicio.html">Inicio</a>
 
-            <a href="miprogreso.html">Mi progreso</a>
+            <a href="MiRuta.html">Mi Ruta</a>
 
             <a href="Cursos.html">Cursos</a>
 
-            <a href="#">Certificados</a>
+            <a href="Empleos.html">Empleos</a>
 
-            <!-- BUSCAR -->
-
-            <div class="buscar-container">
-
-                <a href="#" onclick="abrirBusqueda()">
-                    Buscar
-                </a>
-
-                <div class="barra-busqueda" id="busqueda">
-
-                    <input type="text" placeholder="Buscar cursos...">
-
-                </div>
-
-            </div>
-
-            <!-- ICONOS -->
-
-            <div class="iconos">
-
-                <!-- NOTIFICACIONES -->
-
-                <div class="notificacion-container">
-
-                    <img src="img/Notificacion.png"
-                         alt="Notificaciones"
-                         onclick="abrirNotificaciones()">
-
-                    <div class="panel-notificaciones" id="panel">
-
-                        <h3>Notificaciones</h3>
-
-                        <p>📚 Nueva actividad disponible</p>
-
-                        <p>📝 Entrega pendiente mañana</p>
-
-                        <p>🎉 Nuevo curso agregado</p>
-
-                    </div>
-
-                </div>
-
-                <!-- PERFIL -->
-
-                <div class="perfil-container">
-
-                    <div class="perfil-btn" onclick="toggleMenu()">
-
-                        <img src="img/Perfil.png" alt="Perfil">
-
-                    </div>
-
-                    <div class="menu-perfil" id="menuPerfil">
-
-                        <a href="perfil.html">Mi perfil</a>
-
-                        <a href="index.html" class="cerrar-sesion">
-                            Cerrar sesión
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
+            <a href="#" class="activo">
+                Perfil IA
+            </a>
 
         </nav>
 
@@ -569,6 +425,10 @@
 
             <h2>Angel Luis Hilario G.</h2>
 
+            <p>
+                Perfil profesional analizado por IA
+            </p>
+
         </div>
 
     </section>
@@ -577,9 +437,17 @@
 
     <section class="contenedor">
 
-        <!-- COLUMNA 1 -->
+        <!-- PERFIL PERSONAL -->
 
-        <div class="columna">
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-user"></i>
+
+                <h2>Información Personal</h2>
+
+            </div>
 
             <div class="dato">
 
@@ -593,49 +461,131 @@
 
                 <h3>Ocupación</h3>
 
-                <p>Desempleado</p>
+                <p>Estudiante / Desempleado</p>
 
             </div>
 
             <div class="dato">
 
-                <h3>Correo Electrónico</h3>
+                <h3>Correo</h3>
 
                 <p>Angel1234@gmail.com</p>
 
             </div>
 
-        </div>
-
-        <!-- COLUMNA 2 -->
-
-        <div class="columna">
-
             <div class="dato">
 
-                <h3>Area de interés</h3>
+                <h3>Área de interés</h3>
 
-                <p>Negocios y finanzas </p>
+                <p>Negocios, Marketing y Tecnología</p>
 
             </div>
 
-            <button class="btn-reportes">
-                Reportes
-            </button>
+            <div class="acciones">
+
+                <button>Editar perfil</button>
+
+                <button>Actualizar información</button>
+
+            </div>
 
         </div>
 
-        <!-- BOTONES -->
+        <!-- PERFIL IA -->
 
-        <div class="acciones">
+        <div class="card">
 
-            <button>Editar</button>
+            <div class="card-top">
 
-            <button>Solicitar cambio de información</button>
+                <i class="fa-solid fa-robot"></i>
+
+                <h2>Análisis IA</h2>
+
+            </div>
+
+            <p>
+
+                La IA detectó una alta afinidad
+                hacia áreas de creatividad,
+                negocios digitales y liderazgo.
+
+            </p>
+
+            <div class="skills">
+
+                <div class="skill">Marketing</div>
+
+                <div class="skill">Creatividad</div>
+
+                <div class="skill">Comunicación</div>
+
+                <div class="skill">Tecnología</div>
+
+            </div>
+
+            <div class="ia-box">
+
+                <p>
+
+                    Recomendación IA:
+                    fortalecer experiencia práctica,
+                    crear portafolio y mejorar CV.
+
+                </p>
+
+            </div>
 
         </div>
 
-         <div class="card">
+        <!-- META PROFESIONAL -->
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-bullseye"></i>
+
+                <h2>Meta Profesional</h2>
+
+            </div>
+
+            <p>
+
+                Objetivo actual:
+                <strong>Community Manager</strong>
+
+            </p>
+
+            <p>
+
+                Compatibilidad IA:
+                <strong>84%</strong>
+
+            </p>
+
+            <div class="barra">
+
+                <div class="progreso"></div>
+
+            </div>
+
+            <div class="ia-box">
+
+                <p>
+
+                    Continúa desarrollando habilidades
+                    en publicidad digital y gestión
+                    de campañas.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- HORAS -->
+
+        <div class="card">
 
             <div class="card-top">
 
@@ -660,61 +610,92 @@
 
             </div>
 
-            <p style="margin-top:15px;">
+            <p style="margin-top:20px;">
 
-                Continúa avanzando para validar
+                Sigue completando talleres
+                y actividades para validar
                 tus horas requeridas.
 
             </p>
 
         </div>
 
+        <!-- CV -->
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+                <h2>CV Inteligente</h2>
+
+            </div>
+
+            <p>
+
+                Tu CV puede mejorar agregando:
+
+            </p>
+
+            <div class="skills">
+
+                <div class="skill">Experiencia</div>
+
+                <div class="skill">Proyectos</div>
+
+                <div class="skill">Portafolio</div>
+
+                <div class="skill">Habilidades</div>
+
+            </div>
+
+            <div class="acciones">
+
+                <button>Generar CV IA</button>
+
+            </div>
+
+        </div>
+
+        <!-- EMPLEABILIDAD -->
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <h2>Empleabilidad</h2>
+
+            </div>
+
+            <p>
+
+                Tu perfil coincide con oportunidades
+                de nivel inicial y pasantías.
+
+            </p>
+
+            <div class="skills">
+
+                <div class="skill">Community Manager</div>
+
+                <div class="skill">Marketing Junior</div>
+
+                <div class="skill">Diseño Digital</div>
+
+            </div>
+
+            <div class="acciones">
+
+                <button>Ver empleos</button>
+
+            </div>
+
+        </div>
+
     </section>
-
-    <!-- JAVASCRIPT -->
-
-    <script>
-
-        function abrirNotificaciones(){
-
-            let panel = document.getElementById("panel");
-
-            if(panel.style.display === "block"){
-                panel.style.display = "none";
-            }
-            else{
-                panel.style.display = "block";
-            }
-
-        }
-
-        function abrirBusqueda(){
-
-            let barra = document.getElementById("busqueda");
-
-            if(barra.style.display === "block"){
-                barra.style.display = "none";
-            }
-            else{
-                barra.style.display = "block";
-            }
-
-        }
-
-        function toggleMenu(){
-
-            let menu = document.getElementById("menuPerfil");
-
-            if(menu.style.display === "block"){
-                menu.style.display = "none";
-            }
-            else{
-                menu.style.display = "block";
-            }
-
-        }
-
-    </script>
 
 </body>
 </html>
