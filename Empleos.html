@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Empleos - SaberHacer</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+
+            background: linear-gradient(
+                135deg,
+                #031406,
+                #16a637
+            );
+
+            min-height: 100vh;
+
+            color: white;
+        }
+
+        /* ===== HEADER ===== */
+
+        header{
+
+            background: #021b06;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 45px;
+
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .logo{
+
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 28px;
+
+            font-weight: bold;
+        }
+
+        .logo i{
+
+            color: #2be34f;
+
+            font-size: 40px;
+        }
+
+        nav{
+
+            display: flex;
+
+            gap: 18px;
+
+            align-items: center;
+        }
+
+        nav a{
+
+            text-decoration: none;
+
+            color: white;
+
+            font-weight: bold;
+
+            padding: 10px 16px;
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover{
+
+            background-color: #2be34f;
+
+            transform: translateY(-2px);
+        }
+
+        .activo{
+
+            background-color: #2be34f;
+
+            color: #021b06;
+        }
+
+        /* ===== HERO ===== */
+
+        .hero{
+
+            padding: 60px 70px 40px;
+        }
+
+        .hero h1{
+
+            font-size: 58px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero p{
+
+            font-size: 22px;
+
+            max-width: 900px;
+
+            line-height: 1.6;
+
+            color: rgba(255,255,255,0.88);
+        }
+
+        /* ===== FILTROS ===== */
+
+        .filtros{
+
+            width: 90%;
+
+            margin: auto;
+
+            display: flex;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 40px;
+        }
+
+        .filtros input,
+        .filtros select{
+
+            padding: 14px 18px;
+
+            border-radius: 12px;
+
+            border: none;
+
+            outline: none;
+
+            font-size: 16px;
+
+            min-width: 220px;
+
+            background: rgba(255,255,255,0.12);
+
+            color: white;
+
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .filtros input::placeholder{
+
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ===== CONTENEDOR ===== */
+
+        .contenedor{
+
+            width: 90%;
+
+            margin: auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 30px;
+
+            padding-bottom: 50px;
+        }
+
+        /* ===== CARD EMPLEO ===== */
+
+        .empleo{
+
+            background: rgba(0,0,0,0.28);
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+
+            transition: 0.3s;
+        }
+
+        .empleo:hover{
+
+            transform: translateY(-5px);
+
+            box-shadow: 0px 12px 24px rgba(0,0,0,0.35);
+        }
+
+        .topo{
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 20px;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+        }
+
+        .empresa{
+
+            display: flex;
+            align-items: center;
+
+            gap: 18px;
+        }
+
+        .empresa i{
+
+            font-size: 45px;
+
+            color: #7cff95;
+        }
+
+        .empresa h2{
+
+            font-size: 30px;
+        }
+
+        .empresa p{
+
+            color: rgba(255,255,255,0.7);
+
+            margin-top: 5px;
+        }
+
+        .compatibilidad{
+
+            background: rgba(43,227,79,0.18);
+
+            color: #7cff95;
+
+            padding: 12px 18px;
+
+            border-radius: 16px;
+
+            font-weight: bold;
+        }
+
+        /* ===== INFO ===== */
+
+        .info{
+
+            display: flex;
+
+            gap: 30px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 20px;
+        }
+
+        .info span{
+
+            background: rgba(255,255,255,0.08);
+
+            padding: 10px 14px;
+
+            border-radius: 12px;
+
+            font-size: 15px;
+        }
+
+        /* ===== DESCRIPCION ===== */
+
+        .descripcion{
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: rgba(255,255,255,0.88);
+
+            margin-bottom: 25px;
+        }
+
+        /* ===== HABILIDADES ===== */
+
+        .skills{
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+        }
+
+        .skill{
+
+            background: rgba(43,227,79,0.15);
+
+            color: #7cff95;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+        /* ===== BOTONES ===== */
+
+        .botones{
+
+            display: flex;
+
+            gap: 18px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn{
+
+            text-decoration: none;
+
+            padding: 14px 22px;
+
+            border-radius: 14px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn-aplicar{
+
+            background-color: #2be34f;
+
+            color: #021b06;
+        }
+
+        .btn-aplicar:hover{
+
+            background-color: #7cff95;
+
+            transform: scale(1.05);
+        }
+
+        .btn-guardar{
+
+            border: 2px solid #7cff95;
+
+            color: white;
+        }
+
+        .btn-guardar:hover{
+
+            background-color: rgba(255,255,255,0.08);
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer{
+
+            background: #021b06;
+
+            padding: 25px;
+
+            text-align: center;
+
+            color: rgba(255,255,255,0.75);
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        @media(max-width:900px){
+
+            header{
+
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+            nav{
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .hero{
+
+                padding: 40px 25px;
+            }
+
+            .hero h1{
+
+                font-size: 42px;
+            }
+
+            .hero p{
+
+                font-size: 18px;
+            }
+
+            .contenedor{
+
+                width: 95%;
+            }
+
+            .filtros{
+
+                width: 95%;
+            }
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <span>SaberHacer</span>
+
+        </div>
+
+        <nav>
+
+            <a href="Inicio.html">Inicio</a>
+
+            <a href="MiRuta.html">Mi Ruta</a>
+
+            <a href="Cursos.html">Cursos</a>
+
+            <a href="#" class="activo">
+                Empleos
+            </a>
+
+            <a href="#">Perfil IA</a>
+
+        </nav>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>Empleos y Pasantías</h1>
+
+        <p>
+
+            Encuentra oportunidades reales alineadas
+            con tu perfil profesional, habilidades y
+            metas laborales. La IA de SaberHacer analiza
+            tu compatibilidad antes de aplicar.
+
+        </p>
+
+    </section>
+
+    <!-- FILTROS -->
+
+    <section class="filtros">
+
+        <input type="text"
+               placeholder="Buscar empleo...">
+
+        <select>
+
+            <option>Área profesional</option>
+
+            <option>Marketing</option>
+
+            <option>Diseño</option>
+
+            <option>Tecnología</option>
+
+            <option>Administración</option>
+
+        </select>
+
+        <select>
+
+            <option>Tipo</option>
+
+            <option>Pasantía</option>
+
+            <option>Medio tiempo</option>
+
+            <option>Tiempo completo</option>
+
+        </select>
+
+    </section>
+
+    <!-- EMPLEOS -->
+
+    <section class="contenedor">
+
+        <!-- EMPLEO 1 -->
+
+        <div class="empleo">
+
+            <div class="topo">
+
+                <div class="empresa">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    <div>
+
+                        <h2>Pasantía Community Manager</h2>
+
+                        <p>Agencia Digital Nova</p>
+
+                    </div>
+
+                </div>
+
+                <div class="compatibilidad">
+
+                    Compatibilidad IA: 92%
+
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <span>📍 Santo Domingo</span>
+
+                <span>💼 Pasantía</span>
+
+                <span>🕒 Remoto</span>
+
+            </div>
+
+            <p class="descripcion">
+
+                Apoya la gestión de redes sociales,
+                creación de contenido y campañas
+                publicitarias para clientes reales.
+
+            </p>
+
+            <div class="skills">
+
+                <div class="skill">Marketing</div>
+
+                <div class="skill">Instagram</div>
+
+                <div class="skill">Canva</div>
+
+                <div class="skill">Meta Ads</div>
+
+            </div>
+
+            <div class="botones">
+
+                <a href="#" class="btn btn-aplicar">
+                    Aplicar
+                </a>
+
+                <a href="#" class="btn btn-guardar">
+                    Guardar
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- EMPLEO 2 -->
+
+        <div class="empleo">
+
+            <div class="topo">
+
+                <div class="empresa">
+
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                    <div>
+
+                        <h2>Diseñador Junior</h2>
+
+                        <p>Creative Studio RD</p>
+
+                    </div>
+
+                </div>
+
+                <div class="compatibilidad">
+
+                    Compatibilidad IA: 85%
+
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <span>📍 Santiago</span>
+
+                <span>💼 Medio tiempo</span>
+
+                <span>🕒 Presencial</span>
+
+            </div>
+
+            <p class="descripcion">
+
+                Creación de contenido visual para redes,
+                branding y material publicitario.
+
+            </p>
+
+            <div class="skills">
+
+                <div class="skill">Photoshop</div>
+
+                <div class="skill">Canva</div>
+
+                <div class="skill">Diseño</div>
+
+            </div>
+
+            <div class="botones">
+
+                <a href="#" class="btn btn-aplicar">
+                    Aplicar
+                </a>
+
+                <a href="#" class="btn btn-guardar">
+                    Guardar
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- EMPLEO 3 -->
+
+        <div class="empleo">
+
+            <div class="topo">
+
+                <div class="empresa">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <div>
+
+                        <h2>Auxiliar Marketing Digital</h2>
+
+                        <p>Market Growth Agency</p>
+
+                    </div>
+
+                </div>
+
+                <div class="compatibilidad">
+
+                    Compatibilidad IA: 88%
+
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <span>📍 Punta Cana</span>
+
+                <span>💼 Tiempo completo</span>
+
+                <span>🕒 Híbrido</span>
+
+            </div>
+
+            <p class="descripcion">
+
+                Gestión de campañas digitales,
+                métricas básicas y apoyo al
+                departamento de publicidad.
+
+            </p>
+
+            <div class="skills">
+
+                <div class="skill">Google Ads</div>
+
+                <div class="skill">Excel</div>
+
+                <div class="skill">Marketing</div>
+
+            </div>
+
+            <div class="botones">
+
+                <a href="#" class="btn btn-aplicar">
+                    Aplicar
+                </a>
+
+                <a href="#" class="btn btn-guardar">
+                    Guardar
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 SaberHacer -
+        Bolsa de empleos y pasantías
+
+    </footer>
+
+</body>
+</html>

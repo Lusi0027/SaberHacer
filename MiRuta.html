@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Ruta - SaberHacer</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+
+            background: linear-gradient(
+                135deg,
+                #031406,
+                #16a637
+            );
+
+            color: white;
+
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER ===== */
+
+        header{
+
+            background: #021b06;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 45px;
+
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .logo{
+
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 28px;
+
+            font-weight: bold;
+        }
+
+        .logo i{
+
+            color: #2be34f;
+
+            font-size: 40px;
+        }
+
+        nav{
+
+            display: flex;
+
+            gap: 18px;
+
+            align-items: center;
+        }
+
+        nav a{
+
+            text-decoration: none;
+
+            color: white;
+
+            font-weight: bold;
+
+            padding: 10px 16px;
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover{
+
+            background-color: #2be34f;
+
+            transform: translateY(-2px);
+        }
+
+        .activo{
+
+            background-color: #2be34f;
+
+            color: #021b06;
+        }
+
+        /* ===== HERO ===== */
+
+        .hero{
+
+            background: linear-gradient(
+                135deg,
+                #021b06,
+                #0d6b23
+            );
+
+            padding: 60px 70px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .hero h1{
+
+            font-size: 55px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero p{
+
+            font-size: 24px;
+
+            max-width: 900px;
+
+            line-height: 1.6;
+
+            color: rgba(255,255,255,0.92);
+        }
+
+        /* ===== GRID ===== */
+
+        .grid{
+
+            width: 90%;
+
+            margin: 40px auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+            gap: 30px;
+        }
+
+        /* ===== CARDS ===== */
+
+        .card{
+
+            background: rgba(0,0,0,0.28);
+
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+
+            transition: 0.3s;
+        }
+
+        .card:hover{
+
+            transform: translateY(-5px);
+
+            box-shadow: 0px 12px 24px rgba(0,0,0,0.35);
+        }
+
+        .card-top{
+
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .card-top i{
+
+            font-size: 34px;
+
+            color: #7cff95;
+        }
+
+        .card h2{
+
+            font-size: 28px;
+        }
+
+        .card p{
+
+            margin-bottom: 14px;
+
+            font-size: 18px;
+
+            line-height: 1.5;
+        }
+
+        /* ===== BARRA ===== */
+
+        .barra{
+
+            width: 100%;
+
+            height: 18px;
+
+            background-color: rgba(255,255,255,0.12);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            margin-top: 15px;
+        }
+
+        .progreso{
+
+            width: 74%;
+
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                #2be34f,
+                #7cff95
+            );
+        }
+
+        /* ===== TAGS ===== */
+
+        .tags{
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .tag{
+
+            background-color: rgba(43,227,79,0.15);
+
+            color: #7cff95;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-weight: bold;
+
+            font-size: 14px;
+        }
+
+        /* ===== BOTONES ===== */
+
+        .btn{
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            text-decoration: none;
+
+            background-color: #2be34f;
+
+            color: #021b06;
+
+            padding: 14px 22px;
+
+            border-radius: 14px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover{
+
+            background-color: #7cff95;
+
+            transform: scale(1.05);
+        }
+
+        /* ===== LISTAS ===== */
+
+        ul{
+
+            margin-top: 15px;
+
+            padding-left: 20px;
+        }
+
+        li{
+
+            margin-bottom: 12px;
+
+            font-size: 17px;
+
+            line-height: 1.5;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer{
+
+            margin-top: 50px;
+
+            background: #021b06;
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        @media(max-width:900px){
+
+            header{
+
+                flex-direction: column;
+
+                gap: 20px;
+            }
+
+            nav{
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .hero{
+
+                padding: 40px 25px;
+            }
+
+            .hero h1{
+
+                font-size: 42px;
+            }
+
+            .hero p{
+
+                font-size: 20px;
+            }
+
+            .grid{
+
+                width: 95%;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <span>SaberHacer</span>
+
+        </div>
+
+        <nav>
+
+            <a href="Inicio.html">Inicio</a>
+
+            <a href="MiRuta.html" class="activo">
+                Mi Ruta
+            </a>
+
+            <a href="Cursos.html">Cursos</a>
+
+            <a href="MiRuta.html">Empleos</a>
+
+            <a href="#">Perfil IA</a>
+
+        </nav>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>Tu Ruta Profesional</h1>
+
+        <p>
+
+            La IA de SaberHacer analiza tus intereses,
+            habilidades y metas para construir un camino
+            personalizado hacia oportunidades reales
+            de empleo y crecimiento profesional.
+
+        </p>
+
+    </section>
+
+    <!-- GRID -->
+
+    <section class="grid">
+
+        <!-- META -->
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-bullseye"></i>
+
+                <h2>Meta Profesional</h2>
+
+            </div>
+
+            <p>
+                Objetivo actual:
+                <strong>Community Manager</strong>
+            </p>
+
+            <p>
+                Compatibilidad con el puesto:
+                <strong>74%</strong>
+            </p>
+
+            <div class="barra">
+
+                <div class="progreso"></div>
+
+            </div>
+
+            <div class="tags">
+
+                <div class="tag">Marketing</div>
+
+                <div class="tag">Redes Sociales</div>
+
+                <div class="tag">Publicidad</div>
+
+            </div>
+
+        </div>
+
+        <!-- CURSOS -->
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-book"></i>
+
+                <h2>Cursos Recomendados</h2>
+
+            </div>
+
+            <ul>
+
+                <li>Marketing Digital - Coursera</li>
+
+                <li>Community Management - Udemy</li>
+
+                <li>Google Ads Básico - YouTube</li>
+
+                <li>Excel para negocios - INFOTEP</li>
+
+            </ul>
+
+            <a href="#" class="btn">
+                Ver cursos
+            </a>
+
+        </div>
+
+        <!-- TALLERES -->
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-chalkboard-user"></i>
+
+                <h2>Talleres en Vivo</h2>
+
+            </div>
+
+            <p>
+
+                Complementa tus cursos con experiencias
+                prácticas enfocadas al mercado laboral.
+
+            </p>
+
+            <ul>
+
+                <li>Meta Business Suite</li>
+
+                <li>Portafolio Profesional</li>
+
+                <li>Google Ads Básico</li>
+
+            </ul>
+
+            <a href="#" class="btn">
+                Inscribirme
+            </a>
+
+        </div>
+
+        <!-- PERFIL IA -->
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-robot"></i>
+
+                <h2>Perfil IA</h2>
+
+            </div>
+
+            <p>
+
+                Tu perfil profesional fue analizado
+                correctamente.
+
+            </p>
+
+            <p>
+
+                Recomendación:
+                mejorar experiencia práctica y CV.
+
+            </p>
+
+            <a href="#" class="btn">
+                Optimizar perfil
+            </a>
+
+        </div>
+
+        <!-- EMPLEOS -->
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                <h2>Oportunidades</h2>
+
+            </div>
+
+            <ul>
+
+                <li>Pasantía Community Manager</li>
+
+                <li>Auxiliar Marketing Digital</li>
+
+                <li>Diseñador Junior</li>
+
+            </ul>
+
+            <a href="#" class="btn">
+                Ver empleos
+            </a>
+
+        </div>
+
+        <!-- HORAS -->
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <h2>Horas Acumuladas</h2>
+
+            </div>
+
+            <p>
+
+                Horas completadas:
+                <strong>42 / 60</strong>
+
+            </p>
+
+            <div class="barra">
+
+                <div class="progreso"
+                     style="width:70%">
+                </div>
+
+            </div>
+
+            <p style="margin-top:15px;">
+
+                Continúa avanzando para validar
+                tus horas requeridas.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 SaberHacer -
+        Plataforma de desarrollo profesional
+
+    </footer>
+
+</body>
+</html>
