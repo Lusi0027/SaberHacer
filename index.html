@@ -1,821 +1,857 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SaberHacer</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
+
     *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
-
-body{
-  background:#f5f5f5;
-  color:#111;
-}
-
-header{
-  width:100%;
-  background:#021d08;
-  padding:18px 60px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  color:white;
-  font-size:35px;
-  font-weight:800;
-}
-
-.logo span{
-  font-size:20px;
-}
-
-nav{
-  display:flex;
-  gap:45px;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:700;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#2fff68;
-}
-
-.header-buttons{
-  display:flex;
-  gap:15px;
-}
-
-.btn{
-  padding:14px 25px;
-  border-radius:8px;
-  border:none;
-  cursor:pointer;
-  font-weight:700;
-  transition:0.3s;
-}
-
-.btn-login{
-  background:transparent;
-  border:2px solid rgba(255,255,255,0.6);
-  color:white;
-}
-
-.btn-register{
-  background:#23d84e;
-  color:white;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.main-grid{
-  display:flex;
-  flex-direction:column;
-}
-
-.hero{
-  background:linear-gradient(to right,#00b53c,#4fff8b);
-  min-height:560px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:60px;
-  overflow:hidden;
-  position:relative;
-}
-
-.hero::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.2);
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  color:white;
-  max-width:520px;
-}
-
-.hero-content h4{
-  font-size:20px;
-  margin-bottom:25px;
-}
-
-.hero-content h1{
-  font-size:72px;
-  line-height:1;
-  margin-bottom:25px;
-  font-weight:800;
-}
-
-.hero-content p{
-  font-size:25px;
-  line-height:1.6;
-  text-align:justify;
-}
-
-.hero img{
-  width:520px;
-  border-radius:20px;
-  position:relative;
-  z-index:2;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
-
-/* NUEVO CONTENEDOR DE IMAGEN + BOTÓN */
-.hero-image-container{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
-  position:relative;
-  z-index:2;
-}
-
-/* NUEVO BOTÓN */
-.help-btn{
-  background:#021d08;
-  color:white;
-  border:2px solid #23d84e;
-  padding:14px 28px;
-  border-radius:12px;
-  font-size:18px;
-  font-weight:700;
-  cursor:pointer;
-  transition:0.3s ease;
-  box-shadow:0 6px 18px rgba(0,0,0,0.25);
-}
-
-.help-btn:hover{
-  background:#23d84e;
-  transform:translateY(-3px);
-  box-shadow:0 10px 22px rgba(0,0,0,0.3);
-}
-
-.plans-section{
-  background:white;
-  padding:50px 40px;
-}
-
-.section-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:20px;
-  margin-bottom:30px;
-  font-weight:800;
-}
-
-.circle{
-  width:42px;
-  height:42px;
-  background:#12c54a;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-weight:800;
-}
-
-.plans{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.plan-card{
-  border:2px solid #d6e9d7;
-  border-radius:18px;
-  overflow:hidden;
-  background:white;
-}
-
-.plan-header{
-  padding:18px;
-  color:white;
-  font-size:28px;
-  font-weight:800;
-}
-
-.green{background:#00c93a;}
-.light{background:#9ae547;}
-.dark{background:#0cd64d;}
-
-.plan-body{
-  padding:25px;
-}
-
-.price{
-  font-size:45px;
-  font-weight:800;
-  margin-bottom:10px;
-}
-
-.plan-body p{
-  margin-bottom:20px;
-  font-size:18px;
-}
-
-.plan-body ul{
-  list-style:none;
-  margin-bottom:25px;
-}
-
-.plan-body li{
-  margin-bottom:15px;
-  font-size:17px;
-}
-
-.plan-body li::before{
-  content:'✔';
-  color:#09be3e;
-  margin-right:10px;
-  font-weight:800;
-}
-
-.info-box{
-  background:#eef8eb;
-  padding:18px;
-  border-radius:12px;
-  font-size:15px;
-  line-height:1.7;
-  text-align:justify;
-}
-
-.jobs-section{
-  background:#fafafa;
-  padding:60px;
-}
-
-.jobs-section h2{
-  font-size:52px;
-  margin-bottom:15px;
-}
-
-.jobs-section p{
-  font-size:22px;
-  margin-bottom:40px;
-  text-align:justify;
-}
-
-.jobs-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-}
-
-.job-card{
-  background:#edf7eb;
-  border-radius:18px;
-  padding:30px;
-}
-
-.job-card h3{
-  color:#0eaf37;
-  font-size:34px;
-  margin-bottom:20px;
-}
-
-.job-card ul{
-  list-style:none;
-  margin-bottom:20px;
-}
-
-.job-card li{
-  margin-bottom:14px;
-  font-size:18px;
-}
-
-.job-card li::before{
-  content:'•';
-  color:#0ab53c;
-  margin-right:10px;
-  font-weight:800;
-}
-
-.job-card img{
-  width:100%;
-  margin-top:20px;
-  border-radius:12px;
-}
-
-.institutions{
-  background:white;
-  padding:60px;
-}
-
-.institutions p{
-  font-size:22px;
-  margin-bottom:35px;
-  line-height:1.5;
-  text-align:justify;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-}
-
-th,td{
-  padding:22px;
-  text-align:center;
-  border-bottom:1px solid #ddd;
-  font-size:18px;
-}
-
-th{
-  background:#e9f8e8;
-  color:#0aab36;
-  font-size:20px;
-}
-
-.courses-section{
-  padding:80px 60px;
-  background:#ececec;
-}
-
-.courses-title{
-  text-align:center;
-  font-size:60px;
-  margin-bottom:60px;
-  font-weight:800;
-}
-
-.courses-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.course-card{
-  position:relative;
-  overflow:hidden;
-  border-radius:8px;
-  cursor:pointer;
-  box-shadow:0 4px 12px rgba(0,0,0,0.2);
-}
-
-.course-card img{
-  width:100%;
-  height:320px;
-  object-fit:cover;
-  transition:0.5s;
-  display:block;
-}
-
-.course-overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.65);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:18px;
-  opacity:0;
-  transition:0.4s;
-  color:white;
-}
-
-.course-overlay i{
-  font-size:55px;
-  color:#2fff68;
-}
-
-.course-overlay h3{
-  font-size:30px;
-  font-weight:800;
-  text-align:center;
-  padding:0 10px;
-}
-
-.course-card:hover img{
-  transform:scale(1.1);
-}
-
-.course-card:hover .course-overlay{
-  opacity:1;
-}
-
-footer{
-  background:#021d08;
-  color:white;
-  padding:30px 60px;
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:30px;
-  text-align:center;
-}
-
-.footer-item{
-  font-size:20px;
-  font-weight:600;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-}
-
-.footer-item i,
-.logo i{
-  color:#23d84e;
-}
-
-@media(max-width:1200px){
-
-  .plans{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    flex-direction:column;
-    text-align:center;
-    gap:40px;
-  }
-
-  .hero h1{
-    font-size:52px;
-  }
-
-  .hero img{
-    width:100%;
-    max-width:500px;
-  }
-
-  .jobs-grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:768px){
-
-  header{
-    flex-direction:column;
-    gap:20px;
-    padding:25px;
-  }
-
-  nav{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-  }
-
-  .hero,
-  .jobs-section,
-  .institutions,
-  .plans-section{
-    padding:30px 20px;
-  }
-
-  .hero h1{
-    font-size:42px;
-  }
-
-  .hero p,
-  .jobs-section p,
-  .institutions p{
-    font-size:18px;
-  }
-
-  .jobs-section h2{
-    font-size:38px;
-  }
-
-  table{
-    display:block;
-    overflow-x:auto;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-  }
-}
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#000000;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    :root{
+      --verde:#01F057;
+      --verde-claro:#B3F58E;
+      --negro:#000000;
+      --gris:#101010;
+      --blanco:#ffffff;
+    }
+
+    /* HEADER */
+
+    header{
+      width:100%;
+      background:rgba(0,0,0,0.95);
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .navbar{
+      width:90%;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      color:white;
+      font-size:2rem;
+      font-weight:700;
+    }
+
+    .logo i{
+      color:var(--verde);
+      font-size:2.4rem;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:var(--verde);
+    }
+
+    .btn-login{
+      padding:12px 24px;
+      border-radius:30px;
+      border:none;
+      background:var(--verde);
+      color:black;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn-login:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px var(--verde);
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:120px 8% 80px;
+      gap:60px;
+      background:linear-gradient(to right, #000000 60%, #021108);
+    }
+
+    .hero-text{
+      flex:1;
+    }
+
+    .hero-text h1{
+      font-size:4rem;
+      line-height:1.2;
+      margin-bottom:25px;
+    }
+
+    .hero-text h1 span{
+      color:var(--verde);
+    }
+
+    .hero-text p{
+      font-size:1.1rem;
+      line-height:1.8;
+      text-align:justify;
+      color:#d7d7d7;
+      margin-bottom:35px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+      padding:15px 28px;
+      border-radius:40px;
+      font-weight:600;
+      text-decoration:none;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:var(--verde);
+      color:black;
+    }
+
+    .btn-primary:hover{
+      box-shadow:0 0 25px var(--verde);
+      transform:translateY(-4px);
+    }
+
+    .btn-secondary{
+      border:2px solid var(--verde-claro);
+      color:var(--verde-claro);
+    }
+
+    .btn-secondary:hover{
+      background:var(--verde-claro);
+      color:black;
+    }
+
+    .hero-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      position:relative;
+    }
+
+    .circle{
+      width:450px;
+      height:450px;
+      background:radial-gradient(circle, var(--verde), transparent 70%);
+      border-radius:50%;
+      position:absolute;
+      filter:blur(60px);
+      opacity:0.6;
+    }
+
+    .card-hero{
+      position:relative;
+      width:420px;
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:30px;
+      padding:35px;
+      z-index:2;
+      box-shadow:0 0 30px rgba(1,240,87,0.15);
+    }
+
+    .mini-card{
+      background:#111;
+      border-radius:20px;
+      padding:20px;
+      margin-bottom:20px;
+      border-left:5px solid var(--verde);
+      transition:0.3s;
+    }
+
+    .mini-card:hover{
+      transform:translateX(8px);
+      background:#171717;
+    }
+
+    .mini-card h3{
+      color:var(--verde);
+      margin-bottom:8px;
+    }
+
+    /* FUNCIONALIDADES */
+
+    .features{
+      padding:110px 8%;
+      background:#050505;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      color:var(--verde);
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:#d5d5d5;
+      max-width:800px;
+      margin:auto;
+      line-height:1.8;
+      text-align:justify;
+    }
+
+    .features-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .feature-card{
+      background:#111111;
+      border-radius:25px;
+      padding:35px 30px;
+      transition:0.4s;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .feature-card::before{
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+      background:rgba(1,240,87,0.08);
+      border-radius:50%;
+      top:-40px;
+      right:-40px;
+    }
+
+    .feature-card:hover{
+      transform:translateY(-10px);
+      border:1px solid var(--verde);
+      box-shadow:0 0 30px rgba(1,240,87,0.2);
+    }
+
+    .feature-card i{
+      font-size:2.5rem;
+      color:var(--verde);
+      margin-bottom:20px;
+    }
+
+    .feature-card h3{
+      margin-bottom:15px;
+      font-size:1.3rem;
+    }
+
+    .feature-card p{
+      color:#cfcfcf;
+      line-height:1.7;
+      text-align:justify;
+    }
+
+    /* IA SECTION */
+
+    .ai-section{
+      padding:100px 8%;
+      display:flex;
+      align-items:center;
+      gap:60px;
+      background:linear-gradient(to left, #000000, #07160d);
+      flex-wrap:wrap;
+    }
+
+    .ai-image,
+    .ai-content{
+      flex:1;
+      min-width:300px;
+    }
+
+    .ai-box{
+      background:#101010;
+      padding:40px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,0.08);
+      position:relative;
+    }
+
+    .ai-box::after{
+      content:"IA";
+      position:absolute;
+      top:-20px;
+      right:20px;
+      font-size:5rem;
+      font-weight:800;
+      color:rgba(1,240,87,0.08);
+    }
+
+    .ai-box h2{
+      color:var(--verde);
+      margin-bottom:20px;
+      font-size:2.7rem;
+    }
+
+    .ai-box p{
+      line-height:1.9;
+      text-align:justify;
+      color:#d5d5d5;
+      margin-bottom:20px;
+    }
+
+    .ai-list{
+      display:grid;
+      gap:15px;
+    }
+
+    .ai-list div{
+      background:#161616;
+      padding:15px;
+      border-radius:15px;
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .ai-list i{
+      color:var(--verde);
+    }
+
+    /* PLANES */
+
+    .plans{
+      padding:110px 8%;
+      background:#050505;
+    }
+
+    .plans-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+      margin-top:60px;
+    }
+
+    .plan-card{
+      background:#111;
+      border-radius:30px;
+      padding:40px 30px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .plan-card:hover{
+      transform:translateY(-10px);
+      border:1px solid var(--verde);
+    }
+
+    .plan-card h3{
+      color:var(--verde);
+      font-size:1.8rem;
+      margin-bottom:10px;
+    }
+
+    .price{
+      font-size:3rem;
+      font-weight:700;
+      margin:20px 0;
+    }
+
+    .plan-card ul{
+      list-style:none;
+      margin-bottom:30px;
+    }
+
+    .plan-card ul li{
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#000;
+      padding:60px 8% 30px;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:40px;
+      margin-bottom:40px;
+    }
+
+    .footer-box h3{
+      color:var(--verde);
+      margin-bottom:20px;
+    }
+
+    .footer-box p,
+    .footer-box a{
+      color:#cfcfcf;
+      text-decoration:none;
+      line-height:1.8;
+      display:block;
+      margin-bottom:10px;
+      text-align:justify;
+    }
+
+    .footer-box a:hover{
+      color:var(--verde);
+    }
+
+    .socials{
+      display:flex;
+      gap:15px;
+      margin-top:20px;
+    }
+
+    .socials i{
+      width:45px;
+      height:45px;
+      background:#111;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .socials i:hover{
+      background:var(--verde);
+      color:black;
+      transform:translateY(-5px);
+    }
+
+    .copyright{
+      text-align:center;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#888;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:980px){
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-text p,
+      .section-title p,
+      .feature-card p,
+      .ai-box p,
+      .footer-box p{
+        text-align:center;
+      }
+
+      nav{
+        display:none;
+      }
+
+      .hero-text h1{
+        font-size:3rem;
+      }
+
+      .card-hero{
+        width:100%;
+      }
+
+      .circle{
+        width:300px;
+        height:300px;
+      }
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
+
   <header>
-    <div class="logo">
-      <i class="fa-solid fa-graduation-cap"></i>
-      <span>SaberHacer</span>
-    </div>
+    <div class="navbar">
 
-    <nav>
-      <a href="#">¿QUIÉNES SOMOS?</a>
-      <a href="#">PLANES</a>
-      <a href="#">EMPLEOS</a>
-      <a href="#">PARA EMPRESAS</a>
-    </nav>
+      <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>SaberHacer</span>
+      </div>
 
-    <div class="header-buttons">
-      <button class="btn btn-login" onclick="window.location.href='IniciarSesion.html'"> INICIAR SESIÓN</button>
-      <button class="btn btn-register" onclick="window.location.href='Registro.html'">REGÍSTRATE GRATIS</button>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#funciones">Funciones</a></li>
+          <li><a href="#ia">IA</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex; gap:15px; align-items:center;">
+        <button class="btn-login">Iniciar Sesión</button>
+        <button class="btn-login" style="background:transparent; border:2px solid var(--verde); color:var(--verde);">
+          Registrarse
+        </button>
+      </div>
+
     </div>
   </header>
 
-  <section class="main-grid">
+  <!-- HERO -->
 
-    <div class="hero">
-      <div class="hero-content">
-        <h1>Aprende. Certifícate. Empléate.</h1>
-         <h4>¿QUIÉNES SOMOS?</h4>
+  <section class="hero" id="inicio">
+
+    <div class="hero-text">
+      <h1>
+        Impulsa tu futuro con <span>SaberHacer</span>
+      </h1>
+
+      <p>
+        Plataforma educativa inteligente diseñada para ayudar a bachilleres, graduados y jóvenes mayores de 18 años a descubrir su vocación, mejorar su perfil profesional, acceder a cursos, talleres, empleos y oportunidades reales mediante inteligencia artificial y aprendizaje personalizado.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#funciones" class="btn-primary">Explorar Funciones</a>
+        <a href="#planes" class="btn-secondary">Ver Planes</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+
+      <div class="circle"></div>
+
+      <div class="card-hero">
+
+        <div class="mini-card">
+          <h3>Quiz Vocacional IA</h3>
+          <p>Descubre qué carrera se adapta mejor a ti.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>CV Inteligente</h3>
+          <p>Optimiza tu currículum automáticamente.</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Bolsa de Empleo</h3>
+          <p>Aplica a vacantes desde tu perfil.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FUNCIONALIDADES -->
+
+  <section class="features" id="funciones">
+
+    <div class="section-title">
+      <h2>Funcionalidades Inteligentes</h2>
+      <p>
+        SaberHacer integra herramientas modernas impulsadas por inteligencia artificial para conectar educación, empleabilidad y crecimiento profesional en una sola plataforma.
+      </p>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <i class="fa-solid fa-brain"></i>
+        <h3>Quiz Vocacional con IA</h3>
+        <p>Analiza habilidades, intereses y metas profesionales para recomendar áreas de estudio y carreras ideales.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-book-open"></i>
+        <h3>Cursos Personalizados</h3>
+        <p>Recomendaciones automáticas de cursos en plataformas como Udemy, Coursera, YouTube e INFOTEP.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-chalkboard-user"></i>
+        <h3>Talleres en Vivo</h3>
+        <p>Acceso a talleres con pagos integrados, certificados digitales y clases en tiempo real.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-user-gear"></i>
+        <h3>Perfil Profesional IA</h3>
+        <p>La inteligencia artificial mejora automáticamente tu perfil profesional para aumentar oportunidades.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-file"></i>
+        <h3>Generador de CV</h3>
+        <p>Crea currículums modernos optimizados para empresas y sistemas de reclutamiento.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-briefcase"></i>
+        <h3>Preparación Laboral</h3>
+        <p>Simulaciones de entrevistas, consejos y optimización para aplicar a empleos.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-building"></i>
+        <h3>Bolsa de Empleos</h3>
+        <p>Empresas podrán publicar vacantes y encontrar candidatos compatibles.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Compatibilidad Inteligente</h3>
+        <p>Algoritmo que calcula compatibilidad entre candidatos y vacantes laborales.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-paper-plane"></i>
+        <h3>Aplicación Directa</h3>
+        <p>Los usuarios pueden aplicar a empleos directamente desde su perfil.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-certificate"></i>
+        <h3>Certificaciones</h3>
+        <p>Certificados digitales por participación en talleres y actividades formativas.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-route"></i>
+        <h3>Ruta de Aprendizaje</h3>
+        <p>Plan personalizado basado en metas profesionales y nivel académico.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-users"></i>
+        <h3>Acceso Inclusivo</h3>
+        <p>Disponible para bachilleres, graduados y jóvenes mayores de 18 años.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- IA -->
+
+  <section class="ai-section" id="ia">
+
+    <div class="ai-image">
+
+      <div class="ai-box">
+        <h2>Inteligencia Artificial Aplicada</h2>
+
         <p>
-          SaberHacer es la plataforma donde los jóvenes desarrollan habilidades reales,
-          construyen su perfil profesional y se conectan directamente con empresas.
+          SaberHacer utiliza inteligencia artificial para orientar, recomendar y potenciar las capacidades de cada usuario de forma personalizada.
         </p>
-      </div>
 
-        <div class="hero-image-container">
+        <div class="ai-list">
 
-    <img 
-      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" 
-      alt="Equipo trabajando"
-    >
-
-    <!-- BOTÓN PARA EL QUIZZ -->
-    <button 
-      class="help-btn"
-      onclick="window.location.href='quizz.html'"
-    >
-      ¿Necesitas ayuda para escoger?
-    </button>
-
-  </div>
-
-      </div>
-
-    <div class="plans-section">
-      <div class="section-title">
-        <div class="circle">C</div>
-        PLANES
-      </div>
-
-      <div class="plans">
-
-        <div class="plan-card">
-          <div class="plan-header green">Gratis</div>
-          <div class="plan-body">
-            <div class="price">RD$0</div>
-            <p>Empieza sin comprometer nada.</p>
-
-            <ul>
-              <li>Cursos grabados</li>
-              <li>Explora tu área de interés</li>
-              <li>Con anuncios</li>
-            </ul>
-
-            <div class="info-box">
-              Refiere amigos y gana beneficios gratuitos.
-            </div>
+          <div>
+            <i class="fa-solid fa-check"></i>
+            <span>Optimización automática del perfil profesional.</span>
           </div>
-        </div>
 
-        <div class="plan-card">
-          <div class="plan-header light">Medio</div>
-          <div class="plan-body">
-            <div class="price">RD$700/mes</div>
-            <p>Tu perfil visible ante empleadores.</p>
-
-            <ul>
-              <li>Cursos + certificado</li>
-              <li>Perfil público</li>
-              <li>Aplica a empleos</li>
-              <li>Menos anuncios</li>
-            </ul>
-
-            <div class="info-box">
-              Refiere personas y obtén descuentos.
-            </div>
+          <div>
+            <i class="fa-solid fa-check"></i>
+            <span>Recomendaciones inteligentes de cursos y empleos.</span>
           </div>
-        </div>
 
-        <div class="plan-card">
-          <div class="plan-header dark">Premium</div>
-          <div class="plan-body">
-            <div class="price">RD$1,000/mes</div>
-            <p>El camino más rápido al empleo.</p>
-
-            <ul>
-              <li>Todo lo del plan Medio</li>
-              <li>Talleres en vivo</li>
-              <li>Perfil destacado</li>
-              <li>Prioridad en empleos</li>
-              <li>Sin anuncios</li>
-            </ul>
-
-            <div class="info-box">
-              Obtén más visibilidad frente a empresas.
-            </div>
+          <div>
+            <i class="fa-solid fa-check"></i>
+            <span>Compatibilidad avanzada entre vacantes y candidatos.</span>
           </div>
-        </div>
 
+          <div>
+            <i class="fa-solid fa-check"></i>
+            <span>Creación y mejora automática del CV.</span>
+          </div>
+
+        </div>
       </div>
+
+    </div>
+
+    <div class="ai-content">
+
+      <div class="section-title" style="text-align:left; margin-bottom:20px;">
+        <h2>Conecta educación y empleo</h2>
+      </div>
+
+      <p style="line-height:2; color:#d4d4d4; text-align:justify;">
+        La plataforma integra formación académica, desarrollo profesional y oportunidades laborales en un mismo ecosistema digital. Gracias a la IA, cada usuario recibe una experiencia única basada en sus metas, conocimientos y habilidades.
+      </p>
+
+      <br>
+
+      <a href="#planes" class="btn-primary">Comenzar Ahora</a>
+
     </div>
 
   </section>
 
-  <section class="jobs-section">
+  <!-- PLANES -->
+
+  <section class="plans" id="planes">
 
     <div class="section-title">
-      <div class="circle">D</div>
-      EMPLEOS
+      <h2>Planes Disponibles</h2>
+      <p>
+        Elige el plan ideal para comenzar a desarrollar tu futuro profesional.
+      </p>
     </div>
 
-    <h2>Tu próxima oportunidad está aquí.</h2>
-    <p>SaberHacer conecta directamente a jóvenes con empresas.</p>
+    <div class="plans-grid">
 
-    <div class="jobs-grid">
-
-      <div class="job-card">
-        <h3>JÓVENES</h3>
+      <div class="plan-card">
+        <h3>Básico</h3>
+        <div class="price">Gratis</div>
 
         <ul>
-          <li>Completa tu curso y obtén tu certificado</li>
-          <li>Activa tu perfil profesional</li>
-          <li>Aplica a empleos y pasantías</li>
-          <li>Plan Premium con perfil destacado</li>
+          <li>Quiz vocacional</li>
+          <li>Bolsa de empleos</li>
+          <li>Perfil básico</li>
+          <li>Acceso limitado a talleres</li>
         </ul>
 
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Jóvenes">
+        <a href="#" class="btn-primary">Seleccionar</a>
       </div>
 
-      <div class="job-card">
-        <h3>EMPRESAS</h3>
+      <div class="plan-card">
+        <h3>Pro</h3>
+        <div class="price">US$10</div>
 
         <ul>
-          <li>Publicación de empleos gratis</li>
-          <li>Candidatos pre-filtrados</li>
-          <li>Solicitudes ilimitadas</li>
-          <li>Conexión rápida con talentos</li>
+          <li>IA avanzada</li>
+          <li>CV inteligente</li>
+          <li>Compatibilidad laboral</li>
+          <li>Talleres premium</li>
         </ul>
 
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Empresas">
+        <a href="#" class="btn-primary">Seleccionar</a>
+      </div>
+
+      <div class="plan-card">
+        <h3>Empresas</h3>
+        <div class="price">US$25</div>
+
+        <ul>
+          <li>Publicar vacantes</li>
+          <li>Acceso a candidatos</li>
+          <li>Filtros inteligentes</li>
+          <li>Analíticas de reclutamiento</li>
+        </ul>
+
+        <a href="#" class="btn-primary">Seleccionar</a>
       </div>
 
     </div>
 
   </section>
 
-  <section class="institutions">
+  <!-- FOOTER -->
 
-    <div class="section-title">
-      <div class="circle">E</div>
-      PARA INSTITUCIONES Y EMPRESAS
-    </div>
+  <footer id="contacto">
 
-    <p>
-      Capacita a tu equipo o estudiantes con acceso Premium completo,
-      métricas de progreso y badge institucional verificado.
-    </p>
-
-    <table>
-      <tr>
-        <th>Plan</th>
-        <th>Básico</th>
-        <th>Estándar</th>
-        <th>Avanzado</th>
-        <th>Enterprise</th>
-      </tr>
-
-      <tr>
-        <td><strong>Colegios / Politécnicos</strong></td>
-        <td>Hasta 50 estudiantes<br>RD$10,000/mes</td>
-        <td>51 a 150 estudiantes<br>RD$18,000/mes</td>
-        <td>151 a 300 estudiantes<br>RD$30,000/mes</td>
-        <td>+300 estudiantes<br>A convertir</td>
-      </tr>
-
-      <tr>
-        <td><strong>Empresas</strong></td>
-        <td>Hasta 10 empleados<br>RD$8,000/mes</td>
-        <td>11 a 30 empleados<br>RD$15,000/mes</td>
-        <td>31 a 80 empleados<br>RD$25,000/mes</td>
-        <td>+80 empleados<br>A convertir</td>
-      </tr>
-    </table>
-
-  </section>
-
-  <section class="courses-section">
-
-    <h2 class="courses-title">Nuestros cursos</h2>
-
-    <div class="courses-grid">
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Tecnología">
-        <div class="course-overlay">
-          <i class="fa-solid fa-laptop-code"></i>
-          <h3>Tecnología</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1200&auto=format&fit=crop" alt="Salud">
-        <div class="course-overlay">
-          <i class="fa-solid fa-user-doctor"></i>
-          <h3>Salud</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Electrónica">
-        <div class="course-overlay">
-          <i class="fa-solid fa-microchip"></i>
-          <h3>Electrónica</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop" alt="Diseño">
-        <div class="course-overlay">
-          <i class="fa-solid fa-palette"></i>
-          <h3>Diseño Gráfico</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Negocios">
-        <div class="course-overlay">
-          <i class="fa-solid fa-chart-line"></i>
-          <h3>Negocios</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop" alt="Turismo">
-        <div class="course-overlay">
-          <i class="fa-solid fa-plane"></i>
-          <h3>Turismo</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop" alt="Derecho">
-        <div class="course-overlay">
-          <i class="fa-solid fa-scale-balanced"></i>
-          <h3>Derecho</h3>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop" alt="Administración">
-        <div class="course-overlay">
-          <i class="fa-solid fa-briefcase"></i>
-          <h3>Administración</h3>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <footer>
     <div class="footer-grid">
-      <div class="footer-item"><i class="fa-solid fa-book-open"></i> Aprende habilidades reales</div>
-      <div class="footer-item"><i class="fa-solid fa-certificate"></i> Certificados que abren puertas</div>
-      <div class="footer-item"><i class="fa-solid fa-briefcase"></i> Conéctate con empresas</div>
-      <div class="footer-item"><i class="fa-solid fa-rocket"></i> ¡Tú puedes!</div>
+
+      <div class="footer-box">
+        <h3>SaberHacer</h3>
+
+        <p>
+          Plataforma educativa inteligente enfocada en el desarrollo académico y profesional de jóvenes y graduados.
+        </p>
+
+        <div class="socials">
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+      </div>
+
+      <div class="footer-box">
+        <h3>Plataforma</h3>
+        <a href="#">Cursos</a>
+        <a href="#">Empleos</a>
+        <a href="#">Certificados</a>
+        <a href="#">Talleres</a>
+      </div>
+
+      <div class="footer-box">
+        <h3>Integraciones</h3>
+        <a href="#">Udemy</a>
+        <a href="#">Coursera</a>
+        <a href="#">YouTube</a>
+        <a href="#">INFOTEP</a>
+      </div>
+
+      <div class="footer-box">
+        <h3>Contacto</h3>
+        <p>contacto@saberhacer.com</p>
+        <p>+1 (809) 000-0000</p>
+        <p>Santo Domingo, República Dominicana</p>
+      </div>
+
     </div>
+
+    <div class="copyright">
+      © 2026 SaberHacer - Todos los derechos reservados.
+    </div>
+
   </footer>
 
 </body>
 </html>
+
+
