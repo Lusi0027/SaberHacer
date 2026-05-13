@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <link rel="icon"
           type="image/png"
@@ -27,7 +28,7 @@
         }
 
         body{
-            background: linear-gradient(135deg, #031406, #16a637);
+            background: black;
             min-height: 100vh;
             color: white;
         }
@@ -36,13 +37,7 @@
 
         header{
 
-            background: #021b06;
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
+            background:black;
 
             display: flex;
             justify-content: space-between;
@@ -51,6 +46,10 @@
             padding: 18px 50px;
 
             border-bottom: 2px solid rgba(255,255,255,0.08);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
             box-shadow: 0px 4px 15px rgba(0,0,0,0.25);
         }
@@ -61,22 +60,27 @@
 
             display: flex;
             align-items: center;
-
             gap: 15px;
 
             text-decoration: none;
-
             color: white;
         }
 
         .logo i{
+
             font-size: 55px;
             color: #2be34f;
         }
 
-        .logo h1{
-            font-size: 38px;
+        .logo span{
+
+            font-size: 34px;
+
             font-weight: 800;
+
+            color: white;
+
+            letter-spacing: 1px;
         }
 
         /* ===== NAV ===== */
@@ -85,8 +89,7 @@
 
             display: flex;
             align-items: center;
-
-            gap: 20px;
+            gap: 15px;
         }
 
         nav a{
@@ -101,7 +104,7 @@
 
             border-radius: 14px;
 
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
         nav a:hover{
@@ -114,161 +117,134 @@
         .activo{
 
             background-color: #2be34f;
-
-            color: white;
-        }
-
-        /* ===== BUSQUEDA ===== */
-
-        .buscar-container{
-            position: relative;
-        }
-
-        .barra-busqueda{
-
-            display: none;
-
-            position: absolute;
-
-            top: 55px;
-            right: 0;
-
-            background-color: rgba(0,0,0,0.9);
-
-            padding: 14px;
-
-            border-radius: 14px;
-
-            box-shadow: 0px 8px 20px rgba(0,0,0,0.30);
-
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .barra-busqueda input{
-
-            width: 250px;
-
-            padding: 12px;
-
-            border: 2px solid #2be34f;
-
-            border-radius: 10px;
-
-            outline: none;
-
-            background: rgba(255,255,255,0.08);
-
-            color: white;
-        }
-
-        .barra-busqueda input::placeholder{
-            color: rgba(255,255,255,0.6);
-        }
-
-        .barra-busqueda input:focus{
-
-            box-shadow: 0px 0px 10px #2be34f;
-        }
-
-        /* ===== ICONOS ===== */
-
-        .iconos{
-
-            display: flex;
-            align-items: center;
-
-            gap: 20px;
-        }
-
-        .iconos i{
-
-            font-size: 28px;
-
-            color: white;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-        }
-
-        .iconos i:hover{
-
-            transform: scale(1.1);
-
-            color: #7cff95;
-        }
-
-        /* ===== NOTIFICACIONES ===== */
-
-        .notificacion-container{
-            position: relative;
-        }
-
-        .panel-notificaciones{
-
-            display: none;
-
-            position: absolute;
-
-            top: 55px;
-            right: 0;
-
-            width: 320px;
-
-            background: rgba(0,0,0,0.92);
-
-            border-radius: 16px;
-
-            padding: 18px;
-
-            box-shadow: 0px 8px 20px rgba(0,0,0,0.30);
-
-            z-index: 100;
-
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .panel-notificaciones h3{
-
-            margin-bottom: 15px;
-
-            color: #2be34f;
-        }
-
-        .panel-notificaciones p{
-
-            margin-bottom: 12px;
-
-            padding: 10px;
-
-            border-radius: 10px;
-
-            transition: 0.2s;
-
-            color: white;
-        }
-
-        .panel-notificaciones p:hover{
-
-            background-color: rgba(43,227,79,0.15);
         }
 
         /* ===== CONTENIDO ===== */
 
         .contenido{
-
             padding: 60px 50px;
-
-            color: white;
         }
 
         .contenido h2{
 
             font-size: 65px;
 
-            margin-bottom: 50px;
+            margin-bottom: 15px;
 
             font-weight: 800;
+        }
+
+        .subtitulo{
+
+            font-size: 25px;
+
+            color: rgba(255,255,255,0.85);
+
+            margin-bottom: 50px;
+
+            max-width: 900px;
+
+            line-height: 1.5;
+        }
+
+        /* ===== QUIZZ ===== */
+
+        .quiz-box{
+
+            background: #021b06;
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 28px;
+
+            padding: 35px;
+
+            margin-bottom: 50px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.25);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 30px;
+
+            flex-wrap: wrap;
+        }
+
+        .quiz-texto{
+
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .quiz-texto h3{
+
+            font-size: 42px;
+
+            margin-bottom: 20px;
+
+            color: #7cff95;
+        }
+
+        .quiz-texto p{
+
+            font-size: 22px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+        .btn-quiz{
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            background-color: #2be34f;
+
+            color: #021b06;
+
+            font-weight: bold;
+
+            padding: 18px 28px;
+
+            border-radius: 16px;
+
+            font-size: 20px;
+
+            transition: 0.3s;
+        }
+
+        .btn-quiz:hover{
+
+            transform: scale(1.05);
+
+            background-color: #7cff95;
+        }
+
+        .quiz-icono{
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.08);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-icono i{
+
+            font-size: 80px;
+
+            color: #7cff95;
         }
 
         /* ===== TARJETAS ===== */
@@ -279,7 +255,7 @@
 
             justify-content: center;
 
-            gap: 50px;
+            gap: 40px;
 
             margin-bottom: 60px;
 
@@ -288,13 +264,13 @@
 
         .card{
 
-            background: rgba(0,0,0,0.25);
+            background: #021b06;
 
             backdrop-filter: blur(10px);
 
-            width: 430px;
+            width: 400px;
 
-            min-height: 240px;
+            min-height: 260px;
 
             border-radius: 25px;
 
@@ -314,105 +290,35 @@
             box-shadow: 0px 15px 30px rgba(0,0,0,0.35);
         }
 
-        .card h3{
-
-            text-align: center;
-
-            font-size: 42px;
-
-            margin-bottom: 30px;
-
-            color: #7cff95;
-        }
-
-        .card p{
-
-            font-size: 22px;
-
-            margin-bottom: 20px;
-
-            line-height: 1.4;
-        }
-
-        /* ===== CALENDARIO ===== */
-
-        .calendario{
-
-            width: fit-content;
-
-            margin: auto;
-
-            background: rgba(0,0,0,0.25);
-
-            backdrop-filter: blur(10px);
-
-            padding: 28px 45px;
-
-            border-radius: 24px;
-
-            transition: all 0.3s ease;
-
-            box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
-
-            border: 1px solid rgba(255,255,255,0.10);
-        }
-
-        .calendario:hover{
-
-            transform: scale(1.05);
-        }
-
-        .calendario h3{
-
-            font-size: 42px;
-
-            color: #7cff95;
-        }
-
-        .btn-calendario{
-            text-decoration: none;
-        }
-
-        /* ===== FOOTER ===== */
-
-        footer{
-
-            background: #021b06;
-
-            padding: 25px 40px;
-
-            margin-top: 80px;
-
-            border-top: 2px solid rgba(255,255,255,0.08);
-        }
-
-        .soporte{
+        .card-top{
 
             display: flex;
             align-items: center;
 
             gap: 15px;
 
-            font-size: 22px;
-
-            font-weight: bold;
-
-            color: white;
+            margin-bottom: 25px;
         }
 
-        .soporte i{
+        .card-top i{
 
-            font-size: 38px;
+            font-size: 42px;
 
-            color: #2be34f;
+            color: #7cff95;
+        }
 
-            background: rgba(255,255,255,0.08);
+        .card-top h3{
 
-            padding: 14px;
+            font-size: 34px;
+        }
 
-            border-radius: 50%;
+        .card p{
 
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+            font-size: 21px;
+
+            margin-bottom: 20px;
+
+            line-height: 1.5;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -435,17 +341,22 @@
             }
 
             .contenido h2{
-                font-size: 45px;
+                font-size: 48px;
                 text-align: center;
+            }
+
+            .subtitulo{
+                text-align: center;
+                font-size: 21px;
+            }
+
+            .quiz-box{
+                text-align: center;
+                justify-content: center;
             }
 
             .card{
                 width: 100%;
-            }
-
-            .calendario h3{
-                font-size: 30px;
-                text-align: center;
             }
 
         }
@@ -460,76 +371,25 @@
 
     <header>
 
-        <a href="Inicio.html" class="logo">
+        <div class="logo">
 
             <i class="fa-solid fa-graduation-cap"></i>
 
-            <h1>SaberHacer</h1>
+            <span>SaberHacer</span>
 
-        </a>
+        </div>
 
         <nav>
 
-            <a href="#" class="activo">Inicio</a>
+            <a href="Inicio.html" class="activo">Inicio</a>
 
-            <a href="miprogreso.html">Mi progreso</a>
+            <a href="MiRuta.html">Mi Ruta</a>
 
             <a href="Cursos.html">Cursos</a>
 
-            <a href="#">Certificados</a>
+            <a href="Empleos.html">Empleos</a>
 
-            <!-- BUSCAR -->
-
-            <div class="buscar-container">
-
-                <a href="#" onclick="abrirBusqueda()">
-                    Buscar
-                </a>
-
-                <div class="barra-busqueda" id="busqueda">
-
-                    <input type="text"
-                           placeholder="Buscar cursos...">
-
-                </div>
-
-            </div>
-
-            <!-- ICONOS -->
-
-            <div class="iconos">
-
-                <!-- NOTIFICACIONES -->
-
-                <div class="notificacion-container">
-
-                    <i class="fa-solid fa-bell"
-                       onclick="abrirNotificaciones()"></i>
-
-                    <div class="panel-notificaciones"
-                         id="panel">
-
-                        <h3>Notificaciones</h3>
-
-                        <p>📚 Nueva actividad disponible</p>
-
-                        <p>📝 El examen será el viernes</p>
-
-                        <p>🎉 Nuevo curso agregado</p>
-
-                    </div>
-
-                </div>
-
-                <!-- PERFIL -->
-
-                <a href="Perfil.html">
-
-                    <i class="fa-solid fa-user"></i>
-
-                </a>
-
-            </div>
+            <a href="Perfil.html">Perfil IA</a>
 
         </nav>
 
@@ -541,105 +401,163 @@
 
         <h2>Bienvenido, Angel!</h2>
 
+        <p class="subtitulo">
+
+            Descubre rutas profesionales creadas con IA,
+            encuentra cursos adaptados a tus metas
+            y conecta con oportunidades reales
+            de empleo y pasantías.
+
+        </p>
+
+        <!-- QUIZZ -->
+
+        <div class="quiz-box">
+
+            <div class="quiz-texto">
+
+                <h3>No sabes qué hacer?</h3>
+
+                <p>
+
+                    Realiza nuestro quizz vocacional
+                    impulsado con IA y descubre
+                    qué áreas profesionales encajan
+                    contigo según tus intereses,
+                    metas y habilidades.
+
+                </p>
+
+                <a href="quizz.html"
+                   class="btn-quiz">
+
+                    Hacer quizz vocacional
+
+                </a>
+
+            </div>
+
+            <div class="quiz-icono">
+
+                <i class="fa-solid fa-brain"></i>
+
+            </div>
+
+        </div>
+
         <!-- TARJETAS -->
 
         <div class="tarjetas">
 
-            <div class="card">
-
-                <h3>Resumen</h3>
-
-                <p>Curso en progreso: Técnico en mercadeo</p>
-
-                <p>Progreso del curso: 62%</p>
-
-                <p>Actividades pendientes: 2</p>
-
-            </div>
+            <!-- CARD RUTA -->
 
             <div class="card">
 
-                <h3>Notificaciones</h3>
+                <div class="card-top">
+
+                    <i class="fa-solid fa-route"></i>
+
+                    <h3>Mi Ruta</h3>
+
+                </div>
 
                 <p>
-                    Se vence Actividad de aprendizaje 9
-                    (14/05/2026)
+
+                    Ruta actual:
+                    Técnico en Mercadeo
+
                 </p>
 
                 <p>
-                    Segundo examen (16/05/2026)
+
+                    Compatibilidad IA:
+                    87%
+
+                </p>
+
+                <p>
+
+                    Próximo paso:
+                    Taller de Meta Business Suite
+
                 </p>
 
             </div>
 
-        </div>
+            <!-- CARD IA -->
 
-        <!-- CALENDARIO -->
+            <div class="card">
 
-        <div class="calendario">
-            <a href="Calendario.html"
-               class="btn-calendario">
-                <h3>Calendario de eventos</h3>
-            </a>
+                <div class="card-top">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                    <h3>Perfil IA</h3>
+
+                </div>
+
+                <p>
+
+                    Tu perfil profesional
+                    fue analizado correctamente.
+
+                </p>
+
+                <p>
+
+                    Recomendación:
+                    mejorar experiencia práctica
+                    y fortalecer tu CV.
+
+                </p>
+
+                <p>
+
+                    Nuevos cursos encontrados
+                    en Coursera y Udemy.
+
+                </p>
+
+            </div>
+
+            <!-- CARD EMPLEOS -->
+
+            <div class="card">
+
+                <div class="card-top">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    <h3>Oportunidades</h3>
+
+                </div>
+
+                <p>
+
+                    3 pasantías disponibles
+                    para tu perfil.
+
+                </p>
+
+                <p>
+
+                    Compatibilidad alta
+                    con Community Manager Jr.
+
+                </p>
+
+                <p>
+
+                    Empresas buscando:
+                    marketing y soporte digital.
+
+                </p>
+
+            </div>
+
         </div>
 
     </section>
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="soporte">
-
-            <i class="fa-solid fa-headset"></i>
-
-            <div>
-
-                <p>Soporte técnico</p>
-
-                <p>809-000-9999</p>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-    <!-- JAVASCRIPT -->
-
-    <script>
-
-        function abrirNotificaciones(){
-
-            let panel =
-                document.getElementById("panel");
-
-            if(panel.style.display === "block"){
-
-                panel.style.display = "none";
-            }
-            else{
-
-                panel.style.display = "block";
-            }
-        }
-
-        function abrirBusqueda(){
-
-            let barra =
-                document.getElementById("busqueda");
-
-            if(barra.style.display === "block"){
-
-                barra.style.display = "none";
-            }
-            else{
-
-                barra.style.display = "block";
-            }
-        }
-
-    </script>
 
 </body>
 </html>
